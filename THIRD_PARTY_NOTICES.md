@@ -1,8 +1,8 @@
 # Сторонние компоненты / Third-party notices
 
-MouseKey 0.3.1 включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
+MouseKey 0.3.2 включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
 
-MouseKey 0.3.1 includes open-source components by third parties. Below are their names, versions, licenses and license texts with copyright notices, as those licenses require. MouseKey itself is proprietary software (see [LICENSE](LICENSE)).
+MouseKey 0.3.2 includes open-source components by third parties. Below are their names, versions, licenses and license texts with copyright notices, as those licenses require. MouseKey itself is proprietary software (see [LICENSE](LICENSE)).
 
 ## Содержание / Contents
 
@@ -3401,7 +3401,7 @@ DEALINGS IN THE SOFTWARE.
 
 Used by:
 - hyper-rustls 0.27.10 — https://github.com/rustls/hyper-rustls
-- rustls 0.23.45 — https://github.com/rustls/rustls
+- rustls 0.23.46 — https://github.com/rustls/rustls
 
 ```text
 Copyright (c) 2016 Joseph Birr-Pixton <jpixton@gmail.com>
