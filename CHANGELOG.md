@@ -6,6 +6,22 @@
 All notable changes to MouseKey. Versions follow [SemVer](https://semver.org/). Installers for each version are on the
 [Releases](https://github.com/DiFoxenGit/MouseKey/releases) page.
 
+## 0.3.2 — 2026-10-16
+
+### 🐞 Исправления
+- Панель трея на Windows не закрывается от «Приостановить управление» и «Завершить сеанс»: галочка и строка
+  состояния («Управление приостановлено», «Нет сеанса») меняются прямо в открытой панели, а фокус остаётся на том же
+  месте. Закрывают панель только пункты, которые уводят в другое место: «Принимать подключения…» (окно с
+  подтверждением), «Открыть MouseKey», «Настройки…» и «Выйти из MouseKey», а ещё Esc и щелчок мимо (Fox Brand 0.4.3).
+- Обновлена библиотека TLS `rustls` (0.23.46) — исправления уязвимостей RUSTSEC-2026-0346…0349.
+
+### 🐞 Fixes
+- The Windows tray panel no longer closes on "Pause remote control" and "End session": the check mark and the status
+  line ("Remote control paused", "No session") change right in the open panel, and the focus stays in place. Only items
+  that take you elsewhere close the panel: "Accept connections…" (the confirmation window), "Open MouseKey",
+  "Settings…" and "Quit MouseKey", as do Esc and a click outside (Fox Brand 0.4.3).
+- The `rustls` TLS library is updated (0.23.46) — fixes for RUSTSEC-2026-0346…0349.
+
 ## 0.3.1 — 2026-10-11
 
 ### ⚠️ Важно при обновлении

@@ -144,7 +144,7 @@ Linux (сеанс X11) и другие платформы появятся по�
 В PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.3.1_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.3.2_x64-setup.exe -Algorithm SHA256
 ```
 
 Сумма должна совпасть со строкой этого файла в `SHA256SUMS.txt` того же выпуска.

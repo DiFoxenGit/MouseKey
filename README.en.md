@@ -146,7 +146,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.3.1_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.3.2_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
