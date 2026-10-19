@@ -235,3 +235,17 @@ Enable **Click the found element** in Find Image: after positioning at the match
 Set **Save text to variable** in Read Text, for example `status`. Full recognized text is stored before branching, even if the requested substring is absent; an empty result overwrites the previous value. An empty variable name disables saving. OCR errors stop execution. Preview only displays text and does not change runtime variables.
 
 In If, select Variable `status` on the left, Contains, and Text `ready` on the right. Text supports case-sensitive equality, inequality, contains and does-not-contain. Numbers retain numeric comparisons and arithmetic; there is no implicit string-to-number conversion. Variable can assign/copy text or delete it. Limits: 16,000 characters per string, 200,000 total UTF-8 text bytes, 100 variables. Values reset each run and are not saved as library results. Update both PCs to 0.8.0; ESP firmware is unchanged.
+
+## Одинарный, двойной и тройной клик (0.9.0)
+
+![Тип клика](screenshots/scenario-click-types.png)
+
+В блоке **Клик → Тип клика** выберите **Одинарный**, **Двойной** или **Тройной**. Выбранная кнопка мыши нажимается соответственно 1, 2 или 3 раза. Наведение на заданную точку выполняется один раз перед серией; пауза между отпусканием кнопки и следующим нажатием — 100 мс. Длительность задаёт удержание каждого нажатия; если задан диапазон длительности, одно значение выбирается для всей серии. Остановка прерывает серию и освобождает ввод.
+
+Такой же выбор появляется в **Найти изображение**, когда включён **Кликнуть по найденному элементу**. Используется левая кнопка с удержанием 80 мс. Без совпадения ввод не отправляется; тестовый поиск не кликает. Старые схемы без настройки выполняют одинарный клик. Обновите оба ПК до 0.9.0; ESP перепрошивать не нужно. То, как приложение воспринимает двойной/тройной клик, зависит от его обработки ввода и настроек Windows; длительное удержание может не распознаваться как двойной клик.
+
+### Single, double and triple clicks (English)
+
+Choose **Click → Click type → Single / Double / Triple**. The selected mouse button is pressed 1, 2 or 3 times; positioning happens once before the series. Each release is followed by a 100 ms pause before the next press. Duration controls each hold; a duration range is sampled once per series. Stopping interrupts the series and releases input.
+
+The same selector appears in **Find Image** when **Click the found element** is enabled, using the left button and 80 ms holds. No match means no input; preview never clicks. Old scenarios default to a single click. Update both PCs to 0.9.0; ESP firmware is unchanged. Target applications and Windows settings determine whether a series is interpreted as double/triple clicking; long holds can prevent double-click recognition.
