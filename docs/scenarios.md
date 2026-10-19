@@ -155,7 +155,7 @@ The regular 0.5.0 installer preserves MouseKey application data and automatic up
 - **Плавная изогнутая траектория**: новая ограниченная кривая, плавный разгон и торможение, обратная связь по системному курсору. Завершение — в пределах 2 px от выбранной точки; ошибки позиционирования останавливают сценарий. Это не обещание неотличимости от человека.
 - Перетаскивайте блок за любой край рамки или заголовок к линии между блоками, в том числе между ветками. Отдельных кнопок перемещения нет. Для клавиатуры: Tab до заголовка, Space/Enter для выбора, Tab до места вставки, Enter для переноса. Escape отменяет перенос. Поместить условие внутрь самого себя нельзя; ограничение вложенности сохраняется.
 - **Сравнить изображение → Выбрать область на экране**: выделение прямоугольника, масштаб 1×/2×/4× и численные координаты. Максимум 128×128. Затем **Снять эталон** — отдельный свежий RGB-снимок без JPEG-сжатия; масштаб предварительного просмотра не меняет пиксели эталона.
-- **Проверить совпадение сейчас** показывает реальный процент и снимок различий: несовпавшие пиксели красные. Ни одна ветка при проверке не выполняется. Допуск 0 сравнивает RGB точно; порог можно задать с шагом 0,01%. Изменение области сбрасывает эталон и результат проверки. Поиск по экрану и OCR не добавляются.
+- **Проверить совпадение сейчас** показывает реальный процент и снимок различий: несовпавшие пиксели красные. Ни одна ветка при проверке не выполняется. Допуск 0 сравнивает RGB точно; порог можно задать с шагом 0,01%. Изменение области сбрасывает эталон и результат проверки. В версии 0.5.0 поиск по экрану и OCR ещё недоступны; они добавлены в 0.7.0 ниже.
 - Общий объём RGB-эталонов ограничен 200 000 байт; JSON/канал — 1 МБ. Старые сценарии читаются. Для новых настроек обновите приложения на обоих ПК, прошивку ESP менять не нужно.
 
 ### New editor controls (0.5.0)
@@ -169,3 +169,49 @@ Drag blocks by any frame edge or the title to an insertion line, including betwe
 Select a reference rectangle up to 128×128 with zoom and numeric coordinates, then capture the uncompressed RGB reference separately. **Test match now** shows the exact percentage, current capture and mismatches highlighted red without executing branches. Thresholds support 0.01% increments; tolerance 0 means exact RGB equality. Changing the region clears the reference/test result. References total at most 200,000 bytes, and JSON/channel payloads at most 1 MB. Update both PCs for new settings; existing scenarios and ESP firmware remain compatible.
 
 ESP connectivity is now maintained in a native background thread (500 ms heartbeat, 2 s rediscovery while offline), even with settings closed. The selected board is retained and a changed address is accepted only for its known ID after the old address expires. Interrupted scenarios remain stopped; input is not replayed. Boards without an ID can recover at their original address.
+
+## Логика, поиск и текст (0.7.0)
+
+![Поиск образца и параметры](screenshots/scenario-vision.png)
+
+### Редактирование
+
+Нажмите на линию связи, затем **Delete**, чтобы удалить только связь. Выделенный блок удаляется вместе с его связями. **Отменить изменение** восстанавливает удалённое. При вводе текста или числа Delete редактирует поле, а не удаляет блок. Во время выполнения схема защищена от изменений. Панель параметров стала шире; список соединений можно свернуть.
+
+### Циклы, переменные и условия
+
+- **Цикл** выполняет выход «Тело цикла» от 1 до 1000 раз, затем переходит к «Далее». Обратную линию рисовать не нужно. Тело может закончиться отдельно либо соединиться с блоком «Далее» этого цикла; перескакивать за него нельзя.
+- **Переменная**: задать, прибавить, вычесть, умножить, разделить или удалить. Значение операции — число либо другая переменная. Имена до 48 символов, включая русские буквы; первый символ — буква или подчёркивание. Значения ограничены диапазоном ±1 000 000 000. Деление на ноль и чтение незаданной переменной останавливают сценарий.
+- **Если** сравнивает числа или переменные: равно, не равно, меньше/больше, меньше/больше либо равно. Истинный результат идёт в «Совпало», ложный — в «Не совпало».
+- Переменные сохраняются между итерациями одного запуска, но очищаются перед новым запуском. Текущие значения видны под редактором. Строковых переменных и выполнения произвольного кода нет.
+- Ограничения: 100 блоков, 3 уровня вложенности, 100 000 исполняемых действий/итераций, расчётная длительность до часа. Ожидание времени по часам внутри цикла не разрешено. Остановка проверяется между итерациями.
+
+### Сравнить или найти изображение
+
+**Сравнить изображение** остаётся попиксельной проверкой фиксированной области: допуск RGB, процент совпадения и снимок различий.
+
+**Найти изображение** ищет отдельный образец в выбранной области основного экрана. Выберите область поиска или весь основной экран, затем образец до 128×128 пикселей. Образец можно снять с экрана либо загрузить из PNG/JPEG/WebP и выделить нужный фрагмент. Файл — до 5 МБ, 8192 пикселей по стороне и 20 мегапикселей; прозрачность превращается в белый фон. Сохраняются исходные RGB-пиксели выбранного фрагмента.
+
+Настройте допуск каждого канала и минимальный процент совпавших пикселей. Поиск возвращает первое подходящее место слева направо, сверху вниз, в исходном масштабе. Он не распознаёт предмет по смыслу и не компенсирует поворот или изменение размера. Для другого масштаба интерфейса нужен другой образец. Результат ведёт в «Совпало» или «Не совпало»; при желании можно подвести курсор к центру найденного элемента. **Проверить поиск без движения** показывает координаты и процент, не выполняя ветки и ввод.
+
+Область поиска — до 8192 пикселей по стороне и 20 мегапикселей. При превышении бюджета 80 миллионов сравнений поиск сообщает ошибку: уменьшите область или образец. Ошибки останавливают сценарий, а не выбирают ветку отсутствия совпадения. Общий лимит эталонов остаётся 200 000 байт.
+
+### Распознать текст
+
+Выберите область, язык **Русский**, **English** или **Автоматически**, затем нужную строку. Пустая строка означает проверку наличия любого текста. Можно отключить учёт регистра. **Прочитать сейчас** показывает результат без запуска сценария. При запуске «Совпало» означает наличие строки, «Не совпало» — её отсутствие. Последний распознанный текст доступен под редактором.
+
+OCR выполняется локально средствами Windows, без отправки снимка во внешний сервис. Требуется доступный язык распознавания Windows; при его отсутствии показывается ошибка. Время распознавания ограничено 10 секундами, результат — 16 000 символами. Ошибка или отмена останавливает выполнение. На машине разработки проверено чтение искусственного изображения «Привет MouseKey 123»; работа с конкретным интерфейсом игры и ESP этим тестом не подтверждается.
+
+Для новых блоков обновите MouseKey до **0.7.0 на обоих компьютерах**. Обновление прошивки ESP не требуется. Схемы сохраняются в библиотеке и экспортируются в JSON вместе с эталонами. Для отката доступен предыдущий релиз; перед открытием новой схемы в старой версии сохраните её экспорт.
+
+### Editing, logic and vision (English)
+
+Click a connection or card and press **Delete**; undo restores it. Editing text/number fields does not delete cards. Connections in the wider inspector are collapsible.
+
+**Loop** runs its Body 1–1000 times, then Next; no back edge is required. **Variable** supports numeric assignment, arithmetic and deletion, using a literal or another variable. Unicode names are limited to 48 characters; values to ±1 billion. Undefined reads, zero division and overflow stop execution. **If** compares numbers/variables and selects Match/No match. Variables survive iterations but reset for each new run. Limits: 100 static blocks, 3 nesting levels, 100,000 executed actions/iterations and one hour estimated duration. Clock waits cannot be nested inside loops.
+
+Existing fixed-region **Compare Image** remains available. **Find Image** searches an area of the primary display for an original-scale RGB template up to 128×128. Capture it or crop a PNG/JPEG/WebP file (5 MB, 8192 pixels per side, 20 megapixels). Transparent pixels become white. Configure channel tolerance and matching-pixel percentage; the first qualifying position wins in row-major order. Rotation, resizing and semantic object recognition are not supported. Test search never moves the pointer; runtime movement to the match center is optional. Search areas are limited to 20 megapixels and 8192 pixels per side; an 80-million-comparison budget stops excessive searches with an error. Reduce the search area or template if necessary.
+
+**Read Text** uses local Windows OCR with Russian, English or automatic language selection. Test for a substring (optionally case-insensitive), or any text by leaving it empty. Preview and the last recognized result are shown in the editor. An available Windows OCR language is required; recognition has a 10-second timeout and 16,000-character result limit. Failures stop execution rather than taking the no-match branch. A synthetic Russian/English fixture was tested locally; actual game/ESP behavior was not tested.
+
+Update both PCs to 0.7.0; ESP firmware stays compatible. Export new graphs before reverting to the previous release.
