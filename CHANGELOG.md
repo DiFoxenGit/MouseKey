@@ -4,6 +4,13 @@
 
 ## Не выпущено / Unreleased
 
+## 0.9.0 — 2026-10-20
+
+- Выбор одинарного, двойного и тройного клика в блоке «Клик» и при клике по найденному изображению.
+- Наведение один раз перед серией, интервал 100 мс, остановка освобождает ввод. Старые схемы используют одинарный клик.
+- Single, double and triple click selection for Click and found-image actions; one positioning step, 100 ms gaps and cancellation cleanup. Existing scenarios retain single clicks.
+- Обновите оба ПК; прошивка ESP прежняя. / Update both PCs; ESP firmware is unchanged.
+
 ## 0.8.0 — 2026-10-20
 
 - Клик по центру найденного изображения: один левый клик после наведения, только при совпадении.
