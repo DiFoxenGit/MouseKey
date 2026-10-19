@@ -58,7 +58,7 @@ sees the first person's screen.
 | ⏸ **Pause remote control** | The partner still sees the screen, but their mouse and keyboard do not reach it; held keys are released |
 | 🦊 **Tray** | Session state, End session, Pause remote control; the tray never opens access without asking |
 | 🔌 **ESP32 board** | Optional: mouse and keyboard input through a board that acts as a regular USB device |
-| 🧩 **Scenarios (Windows)** | ESP keys/clicks, window focus, image comparisons, random delays and clock scheduling; [guide](docs/scenarios.md) |
+| 🧩 **Scenarios (Windows)** | ESP keys/clicks, window focus, precise image comparisons, timing ranges, curved paths, drag-and-drop blocks and clock scheduling; [guide](docs/scenarios.md) |
 | 🎨 **Fox Brand** | Toffee, Cocoa and Forest palettes, light and dark themes; English and Russian |
 | 🔄 **Auto-update** | Updates are signed with the project key and checked before they install |
 
@@ -126,7 +126,7 @@ sequenceDiagram
 | **Network** | Internet on both PCs: the connection server finds the partner by code |
 | **ESP32 board** | Not needed — only for input through a board |
 
-For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). The new 0.4.0 scenarios execute on Windows.
+For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). The 0.5.0 scenarios execute on Windows.
 
 ## ⬇️ Download
 

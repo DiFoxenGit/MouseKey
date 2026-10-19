@@ -1,10 +1,21 @@
 # Изменения / Changelog
 
-Все заметные изменения MouseKey. Версии — [SemVer](https://semver.org/lang/ru/). Установщики каждой версии — в
-[«Выпусках»](https://github.com/DiFoxenGit/MouseKey/releases).
+Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
-All notable changes to MouseKey. Versions follow [SemVer](https://semver.org/). Installers for each version are on the
-[Releases](https://github.com/DiFoxenGit/MouseKey/releases) page.
+## Не выпущено / Unreleased
+
+## 0.5.0 — 2026-10-19
+
+- Исправлено ложное отключение ESP после закрытия настроек: фоновый heartbeat и автоматическое повторное обнаружение выбранной платы. Прерванные сценарии не возобновляются автоматически.
+- Fixed ESP appearing disconnected after closing settings: background heartbeats and automatic rediscovery of the selected board. Interrupted scenarios are not resumed automatically.
+
+- Диапазон паузы перед каждым блоком и длительности клавиш, кликов, движения и ожидания; случайная точка в прямоугольнике, плавные изогнутые траектории мыши.
+- Перетаскивание блоков внутри списка и между ветками условий, перенос с клавиатуры и отмена.
+- Выделение области изображения до 128×128 с масштабом и точными координатами; порог 0,01%, пробное сравнение и подсветка несовпавших пикселей.
+- Per-block pause ranges, variable action durations, random target rectangles and smooth curved pointer paths.
+- Drag blocks within lists or across condition branches, with keyboard relocation and cancellation.
+- Select image regions up to 128×128 with zoom and exact coordinates; 0.01% thresholds, test captures and pixel difference previews.
+- Для новых настроек обновите оба ПК. Прошивка ESP не меняется. / Update both PCs for the new settings; ESP firmware is unchanged.
 
 ## 0.4.0 — 2026-10-19
 
@@ -184,30 +195,3 @@ All notable changes to MouseKey. Versions follow [SemVer](https://semver.org/). 
 - A screen chosen in the OS picker after the session ended no longer goes into a new session, and its capture is
   released.
 - Before the partner connects, the empty black video stage no longer takes up space.
-
-## 0.2.0 – 0.2.7 — 2026-09-25
-
-- 0.2.7: ввод через плату ESP32 (Настройки → «Ввод»): поиск плат в сети, состояние, выбор платы.
-- 0.2.6: режимы показа «Вписать», «1:1», «Растянуть», полноэкранный режим, профили «Чётко», «Плавно», «Экономно»,
-  приоритет «Чёткость» или «Плавность», захват до 4K; окно помнит размер и положение.
-- 0.2.5: связь между разными сетями через ретранслятор, когда прямое соединение невозможно.
-- 0.2.4: подключение по короткому коду (6 цифр) и паролю (4 цифры) вместо обмена длинными кодами; значок с лисом.
-- 0.2.3: понятный порядок подключения с пронумерованными шагами.
-- 0.2.2: при сбое подключения видна настоящая причина.
-- 0.2.1: «Подключиться» снова запускает подключение.
-- 0.2.0: звук удалённого ПК, общий буфер обмена, передача файлов, смена экрана, качество и кадры/с, автообновление.
-
-- 0.2.7: input through an ESP32 board (Settings → Input): board search on the network, status, board choice.
-- 0.2.6: Fit, 1:1 and Stretch view modes, full screen, Sharp, Smooth and Lite profiles, Sharpness or Smoothness
-  priority, capture up to 4K; the window remembers its size and position.
-- 0.2.5: connections between different networks through a relay when a direct connection is impossible.
-- 0.2.4: connect with a short code (6 digits) and a password (4 digits) instead of exchanging long codes; fox icon.
-- 0.2.3: a clear connection order with numbered steps.
-- 0.2.2: a failed connection shows the real reason.
-- 0.2.1: Connect starts the connection again.
-- 0.2.0: remote PC sound, shared clipboard, file transfer, screen switching, quality and frame rate, auto-update.
-
-## 0.1.0 — 2026-09-25
-
-- Первая сборка: показ экрана и управление мышью и клавиатурой между двумя ПК, прямое соединение WebRTC.
-- First build: screen sharing and mouse and keyboard control between two PCs over a direct WebRTC connection.
