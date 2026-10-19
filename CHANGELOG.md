@@ -6,6 +6,39 @@
 All notable changes to MouseKey. Versions follow [SemVer](https://semver.org/). Installers for each version are on the
 [Releases](https://github.com/DiFoxenGit/MouseKey/releases) page.
 
+## 0.4.0 — 2026-10-19
+
+### ✨ Новое
+- Конструктор сценариев: клавиши, клики и плавное движение через выбранную ESP32, повторы, импорт и экспорт JSON.
+- Выбор клавиши физическим нажатием; выбор точки и кнопки мыши по снимку, живые координаты курсора целевого ПК.
+- Фиксированные и случайные паузы, ожидание времени по часам целевого ПК.
+- Сравнение области экрана с эталоном и отдельные действия при совпадении и несовпадении.
+- Шаг «Фокус окна»: выбор открытого окна по заголовку и классу, проверка активации перед продолжением.
+- Локальное и удалённое исполнение; удалённые сценарии и снимки требуют разрешения владельца целевого ПК.
+
+### 🛠 Исправления
+- Удалена неиспользуемая обработка ZIP-обновлений с уязвимыми зависимостями. Подписанные EXE-обновления сохранены.
+
+### ⚠️ Важно при обновлении
+- Прошивка ESP не меняется. Для удалённых сценариев обновите MouseKey на обоих компьютерах.
+- Исполнение и снимки поддерживаются на Windows, координаты — основной монитор. F12 останавливает сценарий.
+- Обрыв связи и ошибки захвата/фокуса останавливают исполнение. Проверка на реальной ESP и в ArcheAge не проведена.
+
+### ✨ Added
+- Scenario editor: keys, clicks, smooth ESP32 pointer movement, repeats and JSON import/export.
+- Physical key capture, target-screen point/button selection and live cursor coordinates.
+- Fixed/random delays, target-local clock scheduling and pixel-reference match/non-match branches.
+- Focus-window step selects an open window by exact title/class and verifies activation before continuing.
+- Local/remote execution; remote scenarios and screenshots require explicit host permission.
+
+### 🛠 Fixes
+- Removed unused legacy ZIP update extraction and its vulnerable dependency; signed EXE updates remain supported.
+
+### ⚠️ Updating
+- ESP firmware is unchanged. Update both PCs for remote scenarios. Execution/capture require Windows and use the primary monitor.
+- F12, connection loss and capture/focus errors stop execution. Real ESP hardware and ArcheAge have not been tested.
+
+
 ## 0.3.2 — 2026-10-16
 
 ### 🐞 Исправления
