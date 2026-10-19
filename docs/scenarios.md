@@ -26,6 +26,8 @@
 7. Нажмите «Запустить». Кнопка остановки или F12 на целевом ПК отменяют выполнение.
    Сценарий сохраняется локально; экспорт/импорт JSON переносит его вместе с эталонами, расположением и связями.
 
+Незавершённую связь отменяет повторное нажатие на тот же выход, клик по пустому полотну или Esc. Уже созданные соединения при этом сохраняются.
+
 ## Сохранение и управление схемой
 
 Назовите сценарий и нажмите «Сохранить». Изменения также сохраняются автоматически; надпись «Сохранено на этом ПК» подтверждает запись. «Мои сценарии» переключает сохранённые схемы, «Новый» создаёт пустую, «Копия» дублирует текущую. Библиотека хранит до 20 сценариев, суммарно до 4 миллионов символов JSON. При ошибке записи текущую схему можно экспортировать в файл.
@@ -87,6 +89,8 @@ and 1–128 pixel-high reference on the target, inspect its preview, and configu
 the matching and non-matching branches. Each RGB channel is compared using the
 chosen tolerance; the matching-pixel percentage selects the branch. Capture
 failure stops execution. JSON export includes reference pixels.
+
+Cancel a pending connection by activating its output again, clicking empty canvas, or pressing Escape. Existing connections are preserved.
 
 Name and save scenarios in the local library; autosave also retains card positions and connections. New, duplicate, undo, redo, zoom, fit and arrange controls are available. Disconnected drafts can be saved but cannot run; cycles are rejected. Legacy scenarios migrate automatically. Canvas JSON requires version 0.6.0 or later.
 
