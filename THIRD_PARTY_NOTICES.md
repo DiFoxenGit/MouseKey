@@ -1,8 +1,8 @@
 # Сторонние компоненты / Third-party notices
 
-MouseKey 0.4.0 включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
+MouseKey 0.6.0 включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
 
-MouseKey 0.4.0 includes open-source components by third parties. Below are their names, versions, licenses and license texts with copyright notices, as those licenses require. MouseKey itself is proprietary software (see [LICENSE](LICENSE)).
+MouseKey 0.6.0 includes open-source components by third parties. Below are their names, versions, licenses and license texts with copyright notices, as those licenses require. MouseKey itself is proprietary software (see [LICENSE](LICENSE)).
 
 ## Содержание / Contents
 
@@ -5551,7 +5551,6 @@ Used by:
 - tauri-plugin-opener 2.5.5 — https://github.com/tauri-apps/plugins-workspace
 - tauri-plugin-os 2.3.2 — https://github.com/tauri-apps/plugins-workspace
 - tauri-plugin-process 2.3.1 — https://github.com/tauri-apps/plugins-workspace
-- tauri-plugin-single-instance 2.4.5 — https://github.com/tauri-apps/plugins-workspace
 - tauri-plugin-updater 2.12.0 — https://github.com/tauri-apps/plugins-workspace
 - tauri-plugin-window-state 2.4.1 — https://github.com/tauri-apps/plugins-workspace
 - tauri-runtime-wry 2.11.4 — https://github.com/tauri-apps/tauri

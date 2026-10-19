@@ -4,6 +4,16 @@
 
 ## Не выпущено / Unreleased
 
+## 0.6.0 — 2026-10-19
+
+- Визуальная рабочая поверхность: перетаскивайте блоки из палитры и соединяйте их линиями, включая ветки сравнения изображения. Масштаб, перемещение полотна, автоматическая раскладка и отмена правок.
+- Библиотека именованных сценариев с автосохранением, кнопкой сохранения, копированием и импортом/экспортом. Сохраняются позиции, связи и эталоны; прежний сценарий переносится автоматически.
+- Несколько экземпляров Windows-приложения одновременно: отдельные настройки, сценарии и подключения ESP. Номер виден в заголовке, первый экземпляр сохраняет прежние данные.
+- Visual canvas with draggable action cards, connected image-condition branches, zoom, pan, automatic layout and undo.
+- Named scenario library with autosave, explicit save, duplication and import/export. Positions, connections and image references are retained; legacy scenarios migrate automatically.
+- Multiple simultaneous Windows app instances with separate settings, scenarios and ESP connections. The title shows the instance number; the first instance retains existing data.
+- Прошивка ESP не меняется. Новый JSON конструктора требует 0.6.0; старые JSON импортируются. / ESP firmware is unchanged. New canvas JSON requires 0.6.0; legacy JSON can still be imported.
+
 ## 0.5.0 — 2026-10-19
 
 - Исправлено ложное отключение ESP после закрытия настроек: фоновый heartbeat и автоматическое повторное обнаружение выбранной платы. Прерванные сценарии не возобновляются автоматически.

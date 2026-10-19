@@ -1,8 +1,8 @@
 # Сценарии / Scenarios
 
-![Конструктор сценариев и фокус окна](screenshots/scenarios.png)
+![Рабочая поверхность сценариев](screenshots/scenario-canvas.png)
 
-Раздел MouseKey 0.5.0 для Windows. Он исполняет последовательность
+Раздел MouseKey 0.6.0 для Windows. Он исполняет последовательность
 на целевом ПК и передаёт клавиатуру и мышь выбранной плате ESP через существующий
 протокол MouseKey. Драйвер Windows для этого не требуется.
 
@@ -15,17 +15,30 @@
 3. Откройте «Сценарии». Для запуска партнёром включите «Разрешить партнёру сценарии
    и снимки экрана» на целевом ПК. Разрешение не сохраняется между запусками
    и отзывается при завершении сеанса.
-4. Выберите место исполнения: этот или удалённый компьютер. Добавьте перемещение,
-   клик, клавишу или паузу. X/Y задаются в физических пикселях основного монитора.
+4. В «Целевой компьютер и параметры выполнения» выберите этот или удалённый компьютер. Перетащите действие из палитры на полотно. Соедините выход «Начала» со входом первой карточки, затем выходы карточек со входами следующих. Перемещайте карточки за заголовок, полотно — за свободное место. Настройки выбранной карточки находятся справа. X/Y задаются в физических пикселях основного монитора.
    «Выбрать точку на экране» показывает снимок целевого ПК: нажмите в нужную точку нужной кнопкой мыши. Стрелки уточняют выбор на один пиксель. Окно MouseKey кратко скрывается при съёмке; выбранная точка пока не нажимается.
 5. Для условия добавьте «Сравнить изображение», задайте X/Y и размер области
    (1–128 пикселя по каждой стороне), затем «Снять эталон». Проверьте миниатюру.
    Окно конструктора не должно закрывать интересующую область при съёмке.
-6. Заполните обе ветки. Пиксель совпадает, если отличие каждого RGB-канала не
+6. Соедините выходы «Совпало» и «Не совпало» с нужными действиями. Общий следующий блок можно подключить к обеим веткам: он выполнится один раз. Пиксель совпадает, если отличие каждого RGB-канала не
    превышает допуск. Условие истинно, когда процент таких пикселей не ниже порога.
    При ошибке захвата исполнение прекращается; ветка «не совпало» не запускается.
 7. Нажмите «Запустить». Кнопка остановки или F12 на целевом ПК отменяют выполнение.
-   Сценарий сохраняется локально; экспорт/импорт JSON переносит его вместе с эталонами.
+   Сценарий сохраняется локально; экспорт/импорт JSON переносит его вместе с эталонами, расположением и связями.
+
+## Сохранение и управление схемой
+
+Назовите сценарий и нажмите «Сохранить». Изменения также сохраняются автоматически; надпись «Сохранено на этом ПК» подтверждает запись. «Мои сценарии» переключает сохранённые схемы, «Новый» создаёт пустую, «Копия» дублирует текущую. Библиотека хранит до 20 сценариев, суммарно до 4 миллионов символов JSON. При ошибке записи текущую схему можно экспортировать в файл.
+
+«Вся схема» подбирает масштаб, «Упорядочить» расставляет карточки по связям. Отмена и повтор восстанавливают изменения текущей схемы. С клавиатуры Enter добавляет выбранное действие; для соединения активируйте выход и затем вход, стрелки на заголовке перемещают карточку.
+
+Незавершённую схему можно сохранить. Для запуска все блоки должны быть достижимы от «Начала», циклические связи запрещены; повтор всей схемы задаётся параметром повторов. Старые сценарии переносятся автоматически и импортируются из JSON. Новый формат JSON требует MouseKey 0.6.0 или новее.
+
+## Несколько экземпляров Windows
+
+Запустите MouseKey повторно: откроется ещё один экземпляр, его номер виден в заголовке. Настройки, библиотека сценариев, подключение ESP и память положения окна отдельные. Первый экземпляр использует прежние данные; последующие получают собственные сохраняемые профили. При новом запуске используется первый свободный номер (до 32 одновременно).
+
+Сворачивание в трей не освобождает номер — для этого выберите выход из приложения. Для переноса схемы между экземплярами используйте экспорт/импорт JSON. Системный курсор Windows остаётся общим; одновременные команды на одну плату или один компьютер могут мешать друг другу.
 
 Пример: область с индикатором совпала → Space на 80 мс; не совпала → пауза 1000 мс.
 Повторы повторяют всю последовательность, включая новое сравнение экрана.
@@ -66,7 +79,7 @@
 
 ## English
 
-Open **Scenarios**, configure the ESP on the target PC, and build a list of moves,
+Open **Scenarios**, configure the ESP on the target PC, drag action cards onto the canvas and connect their ports. Select cards to edit moves,
 clicks, keys, waits and image conditions. For remote execution, both PCs need this
 build and an ordinary MouseKey session; enable partner scenarios on the host.
 Coordinates are physical pixels on the primary display. Capture a 1–128 pixel-wide
@@ -74,6 +87,10 @@ and 1–128 pixel-high reference on the target, inspect its preview, and configu
 the matching and non-matching branches. Each RGB channel is compared using the
 chosen tolerance; the matching-pixel percentage selects the branch. Capture
 failure stops execution. JSON export includes reference pixels.
+
+Name and save scenarios in the local library; autosave also retains card positions and connections. New, duplicate, undo, redo, zoom, fit and arrange controls are available. Disconnected drafts can be saved but cannot run; cycles are rejected. Legacy scenarios migrate automatically. Canvas JSON requires version 0.6.0 or later.
+
+Launch MouseKey again on Windows to open a separate numbered instance with its own settings, library and ESP connection. The first profile retains existing data; subsequent launches reuse the first available profile number, up to 32 simultaneous instances. Closing to the tray keeps that instance running. Export/import JSON to copy a scenario between profiles. Windows still has one system pointer; simultaneous input to the same PC or board can interfere.
 
 F12 on the target or **Stop scenario** cancels execution. A lost editor connection
 expires after 5 seconds. UDP sends are checked, but the firmware does not acknowledge
@@ -132,7 +149,7 @@ The regular 0.5.0 installer preserves MouseKey application data and automatic up
 - В каждом блоке раскройте **Разброс и движение**. Пауза перед блоком: 0–60 000 мс. Равные границы задают фиксированное значение. Для клавиши/клика длительность — 20–5000 мс, для перемещения — 100–10 000 мс, для паузы — 20–60 000 мс. Диапазон заменяет фиксированную длительность; он выбирается заново при каждом повторе. Пауза перед ожиданием времени происходит до вычисления следующего наступления этого времени.
 - У перемещения/клика включите **Случайная точка внутри области** и выделите прямоугольник либо введите X/Y, ширину и высоту. Каждое исполнение выбирает одну точку внутри него. У клика эта область заменяет фиксированную точку, движение занимает 500 мс. Длительность клика задаёт удержание кнопки.
 - **Плавная изогнутая траектория**: новая ограниченная кривая, плавный разгон и торможение, обратная связь по системному курсору. Завершение — в пределах 2 px от выбранной точки; ошибки позиционирования останавливают сценарий. Это не обещание неотличимости от человека.
-- Перетаскивайте блок за **Перетащить / перенести** к **Вставить сюда**, в том числе между ветками. Альтернатива мышиному перетаскиванию: нажмите эту кнопку, затем место вставки (доступно клавиатурой и касанием). Escape отменяет перенос. Поместить условие внутрь самого себя нельзя; ограничение вложенности сохраняется.
+- Перетаскивайте блок за любой край рамки или заголовок к линии между блоками, в том числе между ветками. Отдельных кнопок перемещения нет. Для клавиатуры: Tab до заголовка, Space/Enter для выбора, Tab до места вставки, Enter для переноса. Escape отменяет перенос. Поместить условие внутрь самого себя нельзя; ограничение вложенности сохраняется.
 - **Сравнить изображение → Выбрать область на экране**: выделение прямоугольника, масштаб 1×/2×/4× и численные координаты. Максимум 128×128. Затем **Снять эталон** — отдельный свежий RGB-снимок без JPEG-сжатия; масштаб предварительного просмотра не меняет пиксели эталона.
 - **Проверить совпадение сейчас** показывает реальный процент и снимок различий: несовпавшие пиксели красные. Ни одна ветка при проверке не выполняется. Допуск 0 сравнивает RGB точно; порог можно задать с шагом 0,01%. Изменение области сбрасывает эталон и результат проверки. Поиск по экрану и OCR не добавляются.
 - Общий объём RGB-эталонов ограничен 200 000 байт; JSON/канал — 1 МБ. Старые сценарии читаются. Для новых настроек обновите приложения на обоих ПК, прошивку ESP менять не нужно.
@@ -143,7 +160,7 @@ Every block has **Variation and movement** with an optional 0–60,000 ms pre-bl
 
 Mouse moves and clicks can pick a random point inside a rectangle and follow a smooth curved path with acceleration and deceleration. Click positioning takes 500 ms; click duration controls button hold time. Position feedback requires reaching within 2 px of the destination or stops execution. Human indistinguishability is not promised.
 
-Drag blocks between lists/branches or select the move button and an insertion point using keyboard or touch. Escape cancels. Self-nesting and excessive depth are rejected.
+Drag blocks by any frame edge or the title to an insertion line, including between branches. There are no separate move buttons. Keyboard: Tab to a title, Space/Enter to select, Tab to an insertion line, Enter to move. Escape cancels. Self-nesting and excessive depth are rejected.
 
 Select a reference rectangle up to 128×128 with zoom and numeric coordinates, then capture the uncompressed RGB reference separately. **Test match now** shows the exact percentage, current capture and mismatches highlighted red without executing branches. Thresholds support 0.01% increments; tolerance 0 means exact RGB equality. Changing the region clears the reference/test result. References total at most 200,000 bytes, and JSON/channel payloads at most 1 MB. Update both PCs for new settings; existing scenarios and ESP firmware remain compatible.
 
