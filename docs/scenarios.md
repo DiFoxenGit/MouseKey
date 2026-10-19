@@ -215,3 +215,23 @@ Existing fixed-region **Compare Image** remains available. **Find Image** search
 **Read Text** uses local Windows OCR with Russian, English or automatic language selection. Test for a substring (optionally case-insensitive), or any text by leaving it empty. Preview and the last recognized result are shown in the editor. An available Windows OCR language is required; recognition has a 10-second timeout and 16,000-character result limit. Failures stop execution rather than taking the no-match branch. A synthetic Russian/English fixture was tested locally; actual game/ESP behavior was not tested.
 
 Update both PCs to 0.7.0; ESP firmware stays compatible. Export new graphs before reverting to the previous release.
+
+## Клик по результату и текстовые переменные (0.8.0)
+
+![Условие по распознанному тексту](screenshots/scenario-text-variable.png)
+
+В **Найти изображение** включите **Кликнуть по найденному элементу**. При совпадении курсор перемещается к центру и выполняется один левый клик с удержанием 80 мс, затем ветка «Совпало». Флажок работает и без отдельного «Подвести курсор». При отсутствии результата, ошибке наведения или остановке клика нет. Кнопка проверки поиска по-прежнему не отправляет ввод.
+
+В **Распознать текст → Сохранить текст в переменную** укажите, например, `статус`. Всё распознанное содержимое сохраняется перед выбором ветки, независимо от поля «Найти текст». Пустое распознавание записывает пустую строку вместо старого значения; ошибка OCR останавливает сценарий. Пустое имя отключает сохранение. Проверка «Прочитать сейчас» только показывает текст, не меняя переменные запуска.
+
+В следующем блоке **Если** выберите слева **Переменная → статус**, условие **Содержит**, справа **Текст → готов**. Выход «Совпало» выполнится, если в сохранённом тексте есть `готов`. Для текста также доступны «Равно», «Не равно», «Не содержит»; сравнение учитывает регистр. Числовые сравнения и арифметика требуют чисел: строка `123` автоматически в число не превращается. Блок «Переменная» умеет присвоить текст, скопировать другую переменную и удалить значение.
+
+Одна строка ограничена 16 000 символов, суммарный текст переменных — 200 000 байт UTF-8, количество переменных — 100. Переменные живут в пределах запуска и не сохраняются как результат в библиотеке. Перед новым запуском очищаются. Обновите оба ПК до 0.8.0; прошивка ESP прежняя.
+
+### Click results and text variables (English)
+
+Enable **Click the found element** in Find Image: after positioning at the match center, one left click is held for 80 ms before the Match branch. It also works when the separate Move cursor option is off. No match or positioning failure means no click; search preview never sends input.
+
+Set **Save text to variable** in Read Text, for example `status`. Full recognized text is stored before branching, even if the requested substring is absent; an empty result overwrites the previous value. An empty variable name disables saving. OCR errors stop execution. Preview only displays text and does not change runtime variables.
+
+In If, select Variable `status` on the left, Contains, and Text `ready` on the right. Text supports case-sensitive equality, inequality, contains and does-not-contain. Numbers retain numeric comparisons and arithmetic; there is no implicit string-to-number conversion. Variable can assign/copy text or delete it. Limits: 16,000 characters per string, 200,000 total UTF-8 text bytes, 100 variables. Values reset each run and are not saved as library results. Update both PCs to 0.8.0; ESP firmware is unchanged.

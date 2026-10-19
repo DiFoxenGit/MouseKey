@@ -4,6 +4,16 @@
 
 ## Не выпущено / Unreleased
 
+## 0.8.0 — 2026-10-20
+
+- Клик по центру найденного изображения: один левый клик после наведения, только при совпадении.
+- OCR сохраняет полный текст в именованную переменную перед ветвлением. Пустой результат очищает прежнее значение.
+- Текстовые переменные, присваивание/копирование и условия «равно», «не равно», «содержит», «не содержит»; числовая арифметика сохранена.
+- Click the center of a found image after positioning, only on a match.
+- Save full OCR text to a named variable before branching, including empty results.
+- Text assignment/copying and equality/contains conditions; numeric arithmetic remains available.
+- Обновите оба ПК до 0.8.0, прошивка ESP прежняя. / Update both PCs to 0.8.0; ESP firmware is unchanged.
+
 ## 0.7.0 — 2026-10-20
 
 - Выделение линий и блоков, удаление через Delete с отменой. Поля ввода защищены от случайного удаления блока; панель параметров шире, соединения сворачиваются.
