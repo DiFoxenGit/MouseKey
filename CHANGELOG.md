@@ -4,6 +4,18 @@
 
 ## Не выпущено / Unreleased
 
+## 0.7.0 — 2026-10-20
+
+- Выделение линий и блоков, удаление через Delete с отменой. Поля ввода защищены от случайного удаления блока; панель параметров шире, соединения сворачиваются.
+- Блоки «Цикл», «Переменная» и «Если»: числовые переменные с русскими именами, присваивание, арифметика, удаление и сравнения. Значения видны после действий.
+- «Найти изображение»: поиск образца в области основного экрана, отдельные ветки результата, необязательное движение к центру найденного элемента. Образец можно вырезать с экрана или загрузить из PNG/JPEG/WebP.
+- «Распознать текст»: локальный OCR Windows на русском/английском, проверка наличия строки, тестовое чтение и просмотр результата. Прежнее сравнение пикселей сохранено.
+- Select connections or cards and delete with Delete/undo; editable fields are protected, the inspector is wider and connections collapse.
+- Loop, Variable and If blocks: numeric variables, assignments, arithmetic, removal and comparisons, with runtime values shown.
+- Find Image searches a primary-display region for an original-scale template, with result branches and optional pointer movement. Capture a template or crop one from a PNG/JPEG/WebP file.
+- Read Text uses local Windows OCR with Russian/English language selection, text checks, preview and result display. Existing pixel comparisons are unchanged.
+- Новые блоки требуют 0.7.0 на обоих ПК. OCR требует доступного языка Windows. Прошивка ESP не меняется. / New blocks require 0.7.0 on both PCs. OCR needs an available Windows recognition language. ESP firmware is unchanged.
+
 ## 0.6.1 — 2026-10-19
 
 - Незавершённую связь можно отменить повторным нажатием на тот же выход, кликом по свободному полотну или Esc независимо от фокуса. Созданные связи сохраняются.
