@@ -4,6 +4,8 @@
 
 ## Не выпущено / Unreleased
 
+## 0.13.0 — 2026-10-20
+
 - Сочетания Ctrl/Shift/Alt/Win с клавишей; корректные значения в подписях блоков и компактные маркеры растягивания без сплошной оранжевой полосы.
 - Keyboard shortcuts, correctly interpolated block summaries and compact resize grips without full-edge highlighting.
 - Обновлены TLS-зависимости с исправлениями RUSTSEC-2026-0382 и RUSTSEC-2026-0383. / TLS dependencies patched for RUSTSEC-2026-0382 and RUSTSEC-2026-0383.
