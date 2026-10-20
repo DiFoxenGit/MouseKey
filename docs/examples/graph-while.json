@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "id": "while-preview",
+  "name": "Цикл: пока a < 3",
+  "repeat": 1,
+  "entry": "init",
+  "nodes": [
+    {
+      "id": "init",
+      "x": 300,
+      "y": 50,
+      "step": {
+        "kind": "variable",
+        "name": "a",
+        "operation": "set",
+        "value": { "source": "number", "value": 0 }
+      }
+    },
+    {
+      "id": "loop",
+      "x": 600,
+      "y": 50,
+      "step": {
+        "kind": "loop",
+        "mode": "while",
+        "count": 100,
+        "condition": {
+          "left": { "source": "variable", "name": "a" },
+          "comparison": "less",
+          "right": { "source": "number", "value": 3 }
+        },
+        "body": []
+      }
+    },
+    {
+      "id": "body",
+      "x": 600,
+      "y": 260,
+      "step": {
+        "kind": "variable",
+        "name": "a",
+        "operation": "add",
+        "value": { "source": "number", "value": 1 }
+      }
+    }
+  ],
+  "edges": [
+    { "from": "init", "port": "next", "to": "loop" },
+    { "from": "loop", "port": "body", "to": "body" },
+    { "from": "body", "port": "next", "to": "loop" }
+  ]
+}
