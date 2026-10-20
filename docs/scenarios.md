@@ -320,3 +320,34 @@ Coordinates follow the matched element wherever it appears on screen. Bounds sta
 Connect an action or branch output to any earlier action. Start remains an entry point. Cyclic graphs save and arrange normally. Loop supports Count (1–1000), While, Until, and Until stopped. While/Until check before the body and support a 1–1000 iteration ceiling; hitting it while continuation is still required reports an error instead of running Next. A body endpoint, its loop header, or its Next destination ends the current body iteration. The overall 100,000 operation/iteration budget still applies, including empty loops. Clock waits are rejected in cyclic graphs and loop bodies.
 
 Variable remains a standalone palette block. Initialize variables before reading them. Cards and the inspector show expressions such as a = 5, If a > b, and While a < 3. The left palette has Logic, Input, Recognition, and Time groups; the right inspector separates the action summary, main fields, variation and connections. The linked JSON examples perform only variable operations. Update both PCs to 0.12.0; no ESP firmware update is needed. Legacy count loops keep their behavior.
+
+## Сохранённые блоки, размеры и самостоятельный запуск / Saved blocks, layout and standalone runners
+
+### Русский
+
+- Выберите блок, задайте «Название блока» и откройте «Сохранить и переиспользовать…». Справа, во вкладке «Сохранённые блоки», сохраните текущие настройки. Заготовки доступны во всех сценариях текущего экземпляра; есть поиск, удаление и возврат последней удалённой заготовки. Новая копия независима и не содержит связей. В библиотеке до 100 блоков и до 2 МБ данных. Экземпляры приложения имеют отдельные профили.
+- Имя отображается как «Клик (Подтвердить)». Названия и размеры входят в экспорт JSON. Размеры блока меняются за правый/нижний край или угол; стрелки на выбранной ручке меняют размер с шагом 10, Esc отменяет перетаскивание. Порты следуют за краями. Ширина блока — 180–480, высота — 120–320.
+- Разделители рядом с панелями меняют их ширину. Нижний разделитель меняет высоту рабочего полотна. Эти параметры сохраняются на этом ПК. Полотно автоматически расширяется вслед за блоками. На узком окне панели располагаются вертикально.
+- «Распознать текст» читает буквы и цифры. Тип результата «Число» сохраняет число в указанную переменную для арифметики и условий. Выделяйте одно число: `123`, `−1 234,50`, `10.25`. Пробелы допустимы только как группы тысяч, точка/запятая означают десятичный разделитель. Буквы, дроби вида `5/10`, несколько чисел и значения вне ±1 000 000 000 останавливают сценарий с ошибкой; ошибочное значение не превращается в ноль. Обычный режим текста сохраняет прежнее поведение, включая ведущие нули.
+- Настройки → «Запуск и окна»: автозапуск одного окна при входе в Windows и притягивание границ окон MouseKey. Оба параметра изначально выключены, общие для экземпляров текущего пользователя. Притягивание происходит после отпускания мыши в пределах 12 логических пикселей; Shift временно отменяет его. Другие приложения, свёрнутые окна и развёрнутое перемещаемое окно не участвуют. Настройки доступны только в Windows.
+- В конструкторе есть «Самостоятельный EXE». В Windows выбранная подключённая ESP и готовый сценарий упаковываются в отдельный файл в «Загрузках». Это копия движка с встроенным сценарием, а не установка компилятора на ПК пользователя. После подтверждения запуска есть 3 секунды на переход в целевое окно; F12 останавливает выполнение. MouseKey и WebView2 для этого пути запуска не нужны; всё ещё нужны Windows x64, доступная ESP по сохранённому адресу, подходящие координаты экрана и системный пакет языка OCR. Удалённый сеанс MouseKey в EXE не переносится: запускайте файл на ПК с нужным экраном.
+- EXE содержит ключ доступа к выбранной ESP. Не передавайте его тем, кому не доверяете управление платой. EXE не подписан Windows Authenticode. Лицензии включены в движок: запуск с аргументом `--licenses` сохраняет их рядом в `.licenses.txt` без выполнения сценария и без перезаписи существующего файла. Прошивка ESP не меняется.
+
+### English
+
+Name a selected block and use **Save and reuse… → Saved blocks** to save its settings. Presets are available across scenarios in the current instance profile, searchable and independently copied; connections are excluded. Up to 100 presets / 2 MB, with undo for the last removal. Node names and dimensions survive JSON export. Drag a node's right/bottom edge or corner to resize; arrow keys adjust by 10 and Escape cancels a drag. Panel dividers and the bottom divider resize the workspace and persist locally.
+
+OCR supports digits in text mode. **Number** mode stores a bounded numeric variable for arithmetic and conditions: signs, decimal dot/comma and correctly grouped thousands spaces are accepted. Ambiguous text, multiple numbers and values outside ±1,000,000,000 stop the scenario instead of silently using zero. Text mode preserves leading zeros.
+
+Windows settings offer opt-in autostart and snapping between MouseKey windows. These settings are shared by current-user instances. Snapping occurs after releasing a drag within 12 logical pixels; hold Shift to bypass it. Hidden/minimized windows and other applications are excluded.
+
+**Standalone EXE** packages the runtime, scenario and selected connected ESP into a Windows x64 executable in Downloads. It runs without installing MouseKey or WebView2, after confirmation and a three-second switch-window delay. F12 stops the runner. ESP at the saved network address, suitable screen coordinates and Windows OCR language packs are still required. The file contains the board access credential: share only with trusted operators. It is not Windows Authenticode signed. `--licenses` extracts embedded notices beside the executable without running the scenario or overwriting existing files. ESP firmware is unchanged.
+
+![Именованные блоки и панели / Named blocks and panels](screenshots/scenario-presets-layout.png)
+
+
+### Сочетания клавиш / Keyboard shortcuts
+
+В блоке «Клавиша» нажмите поле и нужное сочетание, например Shift + 2 или Ctrl + Shift + A. Модификаторы удерживаются вместе с основной клавишей и отпускаются в обратном порядке. Одиночный Ctrl/Shift/Alt/Win записывается при отпускании. F12 остаётся остановкой сценария. Сочетания требуют обновлённого MouseKey на выполняющем ПК; прошивка ESP не меняется.
+
+Click the Key field and press a shortcut, such as Shift + 2 or Ctrl + Shift + A. Modifiers are held with the main key and released in reverse order. Press and release a modifier to record it alone. F12 remains reserved for stopping. Update MouseKey on the executing PC; ESP firmware is unchanged.

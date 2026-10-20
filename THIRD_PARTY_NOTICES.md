@@ -1,8 +1,8 @@
 # Сторонние компоненты / Third-party notices
 
-MouseKey 0.6.0 включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
+MouseKey включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
 
-MouseKey 0.6.0 includes open-source components by third parties. Below are their names, versions, licenses and license texts with copyright notices, as those licenses require. MouseKey itself is proprietary software (see [LICENSE](LICENSE)).
+MouseKey includes open-source components by third parties. Below are their names, versions, licenses and license texts with copyright notices, as those licenses require. MouseKey itself is proprietary software (see [LICENSE](LICENSE)).
 
 ## Содержание / Contents
 
@@ -2487,7 +2487,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ### ISC License
 
 Used by:
-- rustls-webpki 0.103.15 — https://github.com/rustls/webpki
+- rustls-webpki 0.103.16 — https://github.com/rustls/webpki
 
 ```text
 Except as otherwise noted, this project is licensed under the following

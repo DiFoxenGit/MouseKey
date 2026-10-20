@@ -4,6 +4,17 @@
 
 ## Не выпущено / Unreleased
 
+- Сочетания Ctrl/Shift/Alt/Win с клавишей; корректные значения в подписях блоков и компактные маркеры растягивания без сплошной оранжевой полосы.
+- Keyboard shortcuts, correctly interpolated block summaries and compact resize grips without full-edge highlighting.
+- Обновлены TLS-зависимости с исправлениями RUSTSEC-2026-0382 и RUSTSEC-2026-0383. / TLS dependencies patched for RUSTSEC-2026-0382 and RUSTSEC-2026-0383.
+
+- Именованные заготовки блоков с поиском, независимым повторным использованием и восстановлением после удаления; размеры карточек и панелей настраиваются перетаскиванием.
+- Числовой результат OCR для переменных и условий, с проверкой формата и отказом от неоднозначных значений.
+- Windows: автозапуск и притягивание окон, выключенные по умолчанию; самостоятельный EXE со сценарием и подключением ESP.
+- Named block presets, searchable reuse and removal undo; resizable nodes and panels.
+- Numeric OCR variables with strict parsing; opt-in Windows autostart/window snapping and standalone scenario EXE export.
+
+
 ## 0.12.0 — 2026-10-20
 
 - Обратные связи в схемах, режимы циклов: число повторов, пока, до условия и до остановки.
