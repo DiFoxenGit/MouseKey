@@ -249,3 +249,25 @@ In If, select Variable `status` on the left, Contains, and Text `ready` on the r
 Choose **Click → Click type → Single / Double / Triple**. The selected mouse button is pressed 1, 2 or 3 times; positioning happens once before the series. Each release is followed by a 100 ms pause before the next press. Duration controls each hold; a duration range is sampled once per series. Stopping interrupts the series and releases input.
 
 The same selector appears in **Find Image** when **Click the found element** is enabled, using the left button and 80 ms holds. No match means no input; preview never clicks. Old scenarios default to a single click. Update both PCs to 0.9.0; ESP firmware is unchanged. Target applications and Windows settings determine whether a series is interpreted as double/triple clicking; long holds can prevent double-click recognition.
+
+## Интервалы и разброс действий (0.10.0)
+
+![Диапазон между кликами](screenshots/scenario-click-variation.png)
+
+В **Клик → Двойной / Тройной → Интервал между кликами** задайте нижнюю и верхнюю границы в миллисекундах (0–5000). Равные границы задают фиксированный интервал; разные — случайный интервал заново для каждой паузы между отпусканием кнопки и следующим нажатием. Настройка есть и для клика по найденному изображению. Без неё сохраняется прежний интервал 100 мс. Большие интервалы могут восприниматься целевой программой как отдельные клики.
+
+В разделе **Разброс и движение** доступны:
+
+- Пауза перед любым блоком: диапазон 0–60 000 мс.
+- Удержание клавиш и кликов: 20–5000 мс. Для серии кликов теперь отдельное случайное значение выбирается для каждого нажатия. У найденного изображения удержание по умолчанию 80 мс; его диапазон тоже можно изменить.
+- Длительность перемещения мыши: 100–10 000 мс; обычной паузы: 20–60 000 мс.
+- Случайная точка внутри заданной области для перемещения и обычного клика. В серии точка выбирается один раз, чтобы последующие нажатия не ушли с элемента.
+- Плавная изогнутая траектория для перемещения, обычного клика и наведения к найденному изображению. Поиск изображения продолжает наводить в центр совпадения.
+
+Разброс не меняет эталон изображения, OCR-текст, условия и точное время по часам. Лимит длительности сценария учитывает верхние границы интервалов и удержаний. Старые схемы открываются; для новых настроек обновите оба ПК до 0.10.0, прошивка ESP прежняя.
+
+### Intervals and action variation (English)
+
+For double/triple clicks, set **Interval between clicks** lower/upper bounds (0–5000 ms). Equal bounds give a fixed interval; different bounds sample a new value for each release-to-press gap. This also applies to found-image clicks. Existing scenarios keep 100 ms gaps; large gaps may be treated as separate clicks.
+
+Variation and movement supports pre-block pauses (0–60,000 ms), key/click holds (20–5000 ms), movement duration (100–10,000 ms), waits (20–60,000 ms), random target areas for ordinary movement/clicks, and curved positioning. Click hold ranges are now sampled per press. Found-image clicks support hold ranges and curved positioning, with an 80 ms default hold and the match center as target. Series position is sampled once. References, OCR text, conditions and clock targets are not randomized. Duration limits account for worst-case gap/hold bounds. Update both PCs to 0.10.0; ESP firmware is unchanged.
