@@ -271,3 +271,19 @@ The same selector appears in **Find Image** when **Click the found element** is 
 For double/triple clicks, set **Interval between clicks** lower/upper bounds (0–5000 ms). Equal bounds give a fixed interval; different bounds sample a new value for each release-to-press gap. This also applies to found-image clicks. Existing scenarios keep 100 ms gaps; large gaps may be treated as separate clicks.
 
 Variation and movement supports pre-block pauses (0–60,000 ms), key/click holds (20–5000 ms), movement duration (100–10,000 ms), waits (20–60,000 ms), random target areas for ordinary movement/clicks, and curved positioning. Click hold ranges are now sampled per press. Found-image clicks support hold ranges and curved positioning, with an 80 ms default hold and the match center as target. Series position is sampled once. References, OCR text, conditions and clock targets are not randomized. Duration limits account for worst-case gap/hold bounds. Update both PCs to 0.10.0; ESP firmware is unchanged.
+
+## Случайная точка внутри найденного изображения (0.11.0)
+
+![Границы точки клика / Click target bounds](screenshots/scenario-match-area.png)
+
+В **Найти изображение** включите клик или наведение, затем **Случайная точка внутри найденного изображения**. Четыре границы — **X от / X до / Y от / Y до** — задаются в пикселях от левого верхнего угла образца, начиная с нуля. Обе границы включены. На миниатюре рамкой показана допустимая область.
+
+По умолчанию выбирается весь образец. Например, для 40×20 задайте X 5–34, Y 3–16, чтобы исключить края. Одинаковые границы по обеим осям задают конкретный пиксель внутри элемента. Координаты относятся к найденному элементу, поэтому он может находиться в другом месте экрана. Область не может выходить за образец; при его замене она ограничивается новым размером.
+
+Для каждого выполнения поиска выбирается новая точка; при двойном/тройном клике одна точка используется для всей серии. Настройка действует и на наведение без клика. Выключение возвращает центр. При отсутствии совпадения ввода нет; тестовый поиск по-прежнему показывает центр совпадения и не двигает мышь. Старые схемы используют центр. Обновите оба ПК до 0.11.0; прошивка ESP прежняя.
+
+### Random point inside a found image (English)
+
+Enable clicking or positioning in Find Image, then **Random point inside the found image**. Set inclusive, zero-based **X from / X to / Y from / Y to** relative to the template top-left. A rectangle on the thumbnail shows the permitted area. The default covers the whole template. For a 40×20 template, X 5–34 and Y 3–16 exclude the edges. Equal bounds select one pixel.
+
+Coordinates follow the matched element wherever it appears on screen. Bounds stay inside the template and clamp when it is replaced. Each execution samples a point; double/triple clicks keep that point throughout the series. This also applies to positioning without clicking. Disabling restores the center. No match sends no input; preview still reports the match center without moving the pointer. Existing scenarios retain center positioning. Update both PCs to 0.11.0; ESP firmware is unchanged.
