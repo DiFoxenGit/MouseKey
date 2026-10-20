@@ -34,7 +34,7 @@
 
 «Вся схема» подбирает масштаб, «Упорядочить» расставляет карточки по связям. Отмена и повтор восстанавливают изменения текущей схемы. С клавиатуры Enter добавляет выбранное действие; для соединения активируйте выход и затем вход, стрелки на заголовке перемещают карточку.
 
-Незавершённую схему можно сохранить. Для запуска все блоки должны быть достижимы от «Начала», циклические связи запрещены; повтор всей схемы задаётся параметром повторов. Старые сценарии переносятся автоматически и импортируются из JSON. Новый формат JSON требует MouseKey 0.6.0 или новее.
+Незавершённую схему можно сохранить. Для запуска все блоки должны быть достижимы от «Начала», с версии 0.12.0 разрешены обратные связи; повтор всей схемы также задаётся параметром повторов. Старые сценарии переносятся автоматически и импортируются из JSON. Новый формат JSON требует MouseKey 0.6.0 или новее.
 
 ## Несколько экземпляров Windows
 
@@ -92,7 +92,7 @@ failure stops execution. JSON export includes reference pixels.
 
 Cancel a pending connection by activating its output again, clicking empty canvas, or pressing Escape. Existing connections are preserved.
 
-Name and save scenarios in the local library; autosave also retains card positions and connections. New, duplicate, undo, redo, zoom, fit and arrange controls are available. Disconnected drafts can be saved but cannot run; cycles are rejected. Legacy scenarios migrate automatically. Canvas JSON requires version 0.6.0 or later.
+Name and save scenarios in the local library; autosave also retains card positions and connections. New, duplicate, undo, redo, zoom, fit and arrange controls are available. Disconnected drafts can be saved but cannot run; back edges are supported starting with 0.12.0. Legacy scenarios migrate automatically. Canvas JSON requires version 0.6.0 or later.
 
 Launch MouseKey again on Windows to open a separate numbered instance with its own settings, library and ESP connection. The first profile retains existing data; subsequent launches reuse the first available profile number, up to 32 simultaneous instances. Closing to the tray keeps that instance running. Export/import JSON to copy a scenario between profiles. Windows still has one system pointer; simultaneous input to the same PC or board can interfere.
 
@@ -287,3 +287,36 @@ Variation and movement supports pre-block pauses (0–60,000 ms), key/click hold
 Enable clicking or positioning in Find Image, then **Random point inside the found image**. Set inclusive, zero-based **X from / X to / Y from / Y to** relative to the template top-left. A rectangle on the thumbnail shows the permitted area. The default covers the whole template. For a 40×20 template, X 5–34 and Y 3–16 exclude the edges. Equal bounds select one pixel.
 
 Coordinates follow the matched element wherever it appears on screen. Bounds stay inside the template and clamp when it is replaced. Each execution samples a point; double/triple clicks keep that point throughout the series. This also applies to positioning without clicking. Disabling restores the center. No match sends no input; preview still reports the match center without moving the pointer. Existing scenarios retain center positioning. Update both PCs to 0.11.0; ESP firmware is unchanged.
+
+## Обратные связи и режимы циклов (0.12.0)
+
+![Панели и обратная связь](screenshots/scenario-graph-loops.png)
+
+Выход последнего действия или ветки «Если» можно соединить с входом первого либо любого предыдущего **действия**. «Начало» остаётся точкой входа, а не исполняемым блоком. Обратная связь сохраняется вместе со схемой; «Упорядочить» работает и для замкнутых графов. Конец ветки завершает текущий путь. Внутри тела блока «Цикл» конец ветки, возврат к самому циклу или переход к его «Далее» завершают текущую итерацию.
+
+В отдельном блоке **Цикл** доступны:
+
+| Режим | Поведение |
+|---|---|
+| Заданное число повторов | От 1 до 1000 выполнений тела, затем «Далее» |
+| Пока условие выполняется | Проверить условие перед телом; повторять, пока оно истинно |
+| До выполнения условия | Проверить условие перед телом; повторять, пока оно ложно |
+| До остановки | Повторять до ручной остановки или общего предела выполнения |
+
+Для «Пока» и «До» задаётся **Не более повторов** (1–1000). Если предел достигнут, а условие продолжения всё ещё истинно, сценарий завершается с сообщением; «Далее» не исполняется. Общий предел остаётся 100 000 операций/итераций. Пустые условные циклы проверяют остановку и уступают поток. «Дождаться времени» недоступно внутри циклов и в графах с обратными связями. Условие «До» проверяется до тела: если оно уже истинно, тело не выполняется.
+
+![Режим цикла](screenshots/scenario-loop-modes.png)
+
+**Переменная** находится слева в группе «Логика и переменные» и добавляется отдельной карточкой. Можно присвоить число или текст, скопировать другую переменную, выполнить арифметическую операцию или удалить значение. Создавайте переменные до чтения в условиях. Например: `a = 0` → цикл «Пока a < 3» → в теле `a += 1`. Для проверки изображения используйте соответствующий блок и верните его ветку «Не совпало» к нужному действию.
+
+На карточках и в заголовке правой панели видны выражения: **Если a > b**, **a = 5**, **Пока: a < 3**. Слева действия сгруппированы по логике, вводу, распознаванию и времени; справа основные поля идут перед дополнительными настройками разброса и переходами.
+
+Примеры JSON для импорта (без отправки клавиш и кликов): [ветка с возвратом](examples/graph-back-edge.json), [цикл «Пока»](examples/graph-while.json).
+
+Для новых схем обновите оба ПК до 0.12.0. Прошивка ESP не меняется. Старые циклы без указанного режима сохраняют выполнение заданного числа повторов. Схемы с обратными связями требуют нового исполнителя и не предназначены для старых версий.
+
+### Back edges, loops and panels (English)
+
+Connect an action or branch output to any earlier action. Start remains an entry point. Cyclic graphs save and arrange normally. Loop supports Count (1–1000), While, Until, and Until stopped. While/Until check before the body and support a 1–1000 iteration ceiling; hitting it while continuation is still required reports an error instead of running Next. A body endpoint, its loop header, or its Next destination ends the current body iteration. The overall 100,000 operation/iteration budget still applies, including empty loops. Clock waits are rejected in cyclic graphs and loop bodies.
+
+Variable remains a standalone palette block. Initialize variables before reading them. Cards and the inspector show expressions such as a = 5, If a > b, and While a < 3. The left palette has Logic, Input, Recognition, and Time groups; the right inspector separates the action summary, main fields, variation and connections. The linked JSON examples perform only variable operations. Update both PCs to 0.12.0; no ESP firmware update is needed. Legacy count loops keep their behavior.
