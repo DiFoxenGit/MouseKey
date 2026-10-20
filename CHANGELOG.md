@@ -4,6 +4,13 @@
 
 ## Не выпущено / Unreleased
 
+## 0.11.0 — 2026-10-20
+
+- Случайная точка внутри найденного изображения с границами X/Y от–до и рамкой на миниатюре.
+- Область следует за найденным элементом, ограничивается размером образца; двойной/тройной клик выполняется в одной точке.
+- Random points inside matched images with inclusive X/Y bounds and a thumbnail overlay. Bounds follow the match and stay within the template; click series use one point.
+- Старые схемы используют центр. Обновите оба ПК; прошивка ESP прежняя. / Existing scenarios use the center. Update both PCs; ESP firmware is unchanged.
+
 ## 0.10.0 — 2026-10-20
 
 - Фиксированный или случайный интервал между двойными/тройными кликами: диапазон 0–5000 мс, новый выбор для каждой паузы.
