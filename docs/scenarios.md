@@ -393,3 +393,11 @@ Connect multiple MouseKey instances to the target PCs. Hover over a remote displ
 Adaptive quality is automatic with compatible apps on both sides: active 720p/30 FPS/3500 kbps, overview 432p/12 FPS/700 kbps, hidden 180p/1 FPS/100 kbps, bounded by host preferences. Two overloaded samples reduce quality; five healthy samples restore it. Diagnostics show interval rates, network RTT (not end-to-end latency), drops, decode time and connection route. Unsupported metrics remain unknown; older peers continue streaming without adaptation.
 
 Automatic capture now downscales before pixel readback and sends bounded RGBA frames over local IPC, with one capture in flight and no intermediate JPEG. This is not a zero-copy GPU pipeline. Local release capture timings and eight synthetic loopback sessions validate the implementation, not real eight-PC performance or post-login cursor behavior.
+
+### Исправление после 0.18.0 / Post-0.18.0 correction
+
+Относительные HID-отчёты не равны пикселям рабочего стола: ускорение Windows и очередь USB искажают цель. Поэтому только интерактивное управление рабочим столом позиционирует курсор через Windows, даже при выбранной ESP. Клики, колесо и клавиатура идут через ESP; сценарии сохраняют свой путь ввода. Локальная стрелка рисуется по текущим событиям мыши, не по видеокадрам.
+
+Несжатый кадр 1280×720 занимает 3 686 408 байт с заголовком и создаёт до 110 МБ/с локального IPC при 30 FPS. Новый путь сохраняет уменьшение GDI перед чтением, затем сжимает уменьшенный RGB в JPEG 80. Обрабатывается один кадр, decoded bitmap освобождается; исходный полноразмерный JPEG-путь не возвращается. Замеры native capture сами по себе не доказывают FPS всей трансляции. Новые метрики хоста отделяют захват/IPC и подготовку от кодирования, а устаревшая телеметрия пропадает через 5 секунд. Для этих метрик обновить обе стороны.
+
+Desktop pointer positioning uses Windows physical coordinates, while ESP retains buttons, wheel and keys. Scenario input is unchanged. The local cursor overlay updates directly from mouse events. Downscaled JPEG replaces multi-megabyte raw IPC frames; host telemetry separates capture/IPC, drawing and encoding from network/receiver timing. Real remote performance still requires measurement on the affected host.
