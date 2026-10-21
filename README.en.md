@@ -232,3 +232,9 @@ or take it apart — see [LICENSE](LICENSE). Open-source components inside the a
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 <div align="center"><br><sub>© 2026 DiFoxen · MouseKey — your own remote access · <a href="README.md">Русский</a></sub></div>
+
+### MouseKey 0.13.1
+
+Saved blocks below the canvas; auxiliary controls stay collapsed.
+
+![MouseKey 0.13.1](docs/screenshots/preset-library-bottom.png)
