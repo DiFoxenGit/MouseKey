@@ -4,6 +4,10 @@
 
 ## Не выпущено / Unreleased
 
+## 0.15.0 — 2026-10-21
+
+- Кнопки «Свернуть все» и «Развернуть все»; порты больше не перекрываются ручкой размера, вертикальная риска справа удалена. / Collapse/expand all blocks; resize handles no longer cover ports or draw the right-edge hover mark.
+
 ## 0.14.0 — 2026-10-21
 
 - Сворачивание блоков до квадрата с иконкой: связи, настройки и прежние размеры сохраняются. / Collapse blocks to icon squares while preserving connections, settings and expanded dimensions.

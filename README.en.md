@@ -244,3 +244,9 @@ Saved blocks below the canvas; auxiliary controls stay collapsed.
 Collapse blocks to icons while keeping their connections and expanded dimensions.
 
 ![MouseKey 0.14.0](docs/screenshots/compact-blocks.png)
+
+### MouseKey 0.15.0
+
+Collapse all and Expand all control the entire diagram. Resize handles no longer cover connection ports.
+
+![MouseKey 0.15.0](docs/screenshots/bulk-collapse.png)
