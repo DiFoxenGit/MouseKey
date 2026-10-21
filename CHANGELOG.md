@@ -4,6 +4,14 @@
 
 ## Не выпущено / Unreleased
 
+## 0.13.1 — 2026-10-21
+
+- Сохранённые блоки перенесены под всё полотно конструктора и сгруппированы по назначению. Справа только параметры выбранного блока и прямое сохранение без вкладок.
+- Saved blocks are grouped below the entire canvas; the inspector shows only selection settings with direct preset saving.
+
+- Управление сценариями, импорт/экспорт и настройки запуска перенесены вниз и свёрнуты по умолчанию. Эталон изображения сохраняется вместе с заготовкой; карточка отмечает его наличие.
+- Scenario management, file actions and execution settings are collapsed below the canvas. Presets retain embedded image pixels and show a reference indicator.
+
 ## 0.13.0 — 2026-10-20
 
 - Сочетания Ctrl/Shift/Alt/Win с клавишей; корректные значения в подписях блоков и компактные маркеры растягивания без сплошной оранжевой полосы.

@@ -325,7 +325,7 @@ Variable remains a standalone palette block. Initialize variables before reading
 
 ### Русский
 
-- Выберите блок, задайте «Название блока» и откройте «Сохранить и переиспользовать…». Справа, во вкладке «Сохранённые блоки», сохраните текущие настройки. Заготовки доступны во всех сценариях текущего экземпляра; есть поиск, удаление и возврат последней удалённой заготовки. Новая копия независима и не содержит связей. В библиотеке до 100 блоков и до 2 МБ данных. Экземпляры приложения имеют отдельные профили.
+- Выберите блок, задайте «Название блока» и нажмите «Сохранить блок». Заготовка появится под всем полотном конструктора, в разделе своего типа. Заготовки доступны во всех сценариях текущего экземпляра; есть поиск, удаление и возврат последней удалённой заготовки. Новая копия независима и не содержит связей. В библиотеке до 100 блоков и до 2 МБ данных. Экземпляры приложения имеют отдельные профили.
 - Имя отображается как «Клик (Подтвердить)». Названия и размеры входят в экспорт JSON. Размеры блока меняются за правый/нижний край или угол; стрелки на выбранной ручке меняют размер с шагом 10, Esc отменяет перетаскивание. Порты следуют за краями. Ширина блока — 180–480, высота — 120–320.
 - Разделители рядом с панелями меняют их ширину. Нижний разделитель меняет высоту рабочего полотна. Эти параметры сохраняются на этом ПК. Полотно автоматически расширяется вслед за блоками. На узком окне панели располагаются вертикально.
 - «Распознать текст» читает буквы и цифры. Тип результата «Число» сохраняет число в указанную переменную для арифметики и условий. Выделяйте одно число: `123`, `−1 234,50`, `10.25`. Пробелы допустимы только как группы тысяч, точка/запятая означают десятичный разделитель. Буквы, дроби вида `5/10`, несколько чисел и значения вне ±1 000 000 000 останавливают сценарий с ошибкой; ошибочное значение не превращается в ноль. Обычный режим текста сохраняет прежнее поведение, включая ведущие нули.
@@ -335,7 +335,7 @@ Variable remains a standalone palette block. Initialize variables before reading
 
 ### English
 
-Name a selected block and use **Save and reuse… → Saved blocks** to save its settings. Presets are available across scenarios in the current instance profile, searchable and independently copied; connections are excluded. Up to 100 presets / 2 MB, with undo for the last removal. Node names and dimensions survive JSON export. Drag a node's right/bottom edge or corner to resize; arrow keys adjust by 10 and Escape cancels a drag. Panel dividers and the bottom divider resize the workspace and persist locally.
+Name a selected block and use **Save block** to save its settings in the categorized library at the bottom of the left panel. Presets are available across scenarios in the current instance profile, searchable and independently copied; connections are excluded. Up to 100 presets / 2 MB, with undo for the last removal. Node names and dimensions survive JSON export. Drag a node's right/bottom edge or corner to resize; arrow keys adjust by 10 and Escape cancels a drag. Panel dividers and the bottom divider resize the workspace and persist locally.
 
 OCR supports digits in text mode. **Number** mode stores a bounded numeric variable for arithmetic and conditions: signs, decimal dot/comma and correctly grouped thousands spaces are accepted. Ambiguous text, multiple numbers and values outside ±1,000,000,000 stop the scenario instead of silently using zero. Text mode preserves leading zeros.
 
@@ -351,3 +351,10 @@ Windows settings offer opt-in autostart and snapping between MouseKey windows. T
 В блоке «Клавиша» нажмите поле и нужное сочетание, например Shift + 2 или Ctrl + Shift + A. Модификаторы удерживаются вместе с основной клавишей и отпускаются в обратном порядке. Одиночный Ctrl/Shift/Alt/Win записывается при отпускании. F12 остаётся остановкой сценария. Сочетания требуют обновлённого MouseKey на выполняющем ПК; прошивка ESP не меняется.
 
 Click the Key field and press a shortcut, such as Shift + 2 or Ctrl + Shift + A. Modifiers are held with the main key and released in reverse order. Press and release a modifier to record it alone. F12 remains reserved for stopping. Update MouseKey on the executing PC; ESP firmware is unchanged.
+
+
+Сохранённые блоки находятся под всем полотном конструктора и сгруппированы по назначению: мышь, клавиатура, распознавание, логика, время и окна. Назовите выбранный блок справа и нажмите «Сохранить блок». Нажатие на заготовку снизу добавляет независимую копию. Справа остаются только параметры выбранного элемента; прежние заготовки доступны без миграции.
+
+Saved blocks appear at the bottom of the left palette, grouped by mouse, keyboard, recognition, logic, timing and windows. Name the selected block on the right and choose Save block. Clicking a preset adds an independent copy. The right panel contains only selection settings; existing presets require no migration.
+
+Эталон в блоках «Найти изображение» и «Сравнить изображение» входит в сохранённую заготовку: сохраняются сами пиксели и размеры, а не путь к исходному файлу. Повторное добавление создаёт независимую копию. В карточке есть отметка «Эталон сохранён вместе с блоком». Разделы «Мои сценарии», «Импорт, экспорт и сборка EXE» и настройки выполнения находятся ниже и изначально свёрнуты.

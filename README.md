@@ -230,3 +230,9 @@ MouseKey — проприетарное бесплатное ПО, все пра
 лицензии — [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 <div align="center"><br><sub>© 2026 DiFoxen · MouseKey — свой удалённый доступ · <a href="README.en.md">English</a></sub></div>
+
+### MouseKey 0.13.1
+
+Сохранённые блоки под полотном; дополнительные настройки свёрнуты.
+
+![MouseKey 0.13.1](docs/screenshots/preset-library-bottom.png)
