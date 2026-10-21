@@ -236,3 +236,9 @@ MouseKey — проприетарное бесплатное ПО, все пра
 Сохранённые блоки под полотном; дополнительные настройки свёрнуты.
 
 ![MouseKey 0.13.1](docs/screenshots/preset-library-bottom.png)
+
+### MouseKey 0.14.0
+
+Кнопка на блоке сворачивает его до иконки, сохраняя связи и прежний размер.
+
+![MouseKey 0.14.0](docs/screenshots/compact-blocks.png)
