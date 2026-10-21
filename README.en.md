@@ -152,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.16.0_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.17.0_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -261,3 +261,7 @@ Arrange uses visible block dimensions and packs collapsed icon squares closer to
 Accounts and computer cards, persistent access and hover control.
 
 ![MouseKey account sign-in](docs/screenshots/account-login.png)
+
+### MouseKey 0.17.0
+
+Revocable temporary access keys, side-by-side connection panels, automatic sharing recovery, a visible cursor and maximization that preserves the app header.

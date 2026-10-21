@@ -6,11 +6,21 @@
 
 Автоматический показ снимает основной монитор, до 1280×720 и 12 кадров/с, без звука. Частота зависит от нагрузки и фоновых ограничений WebView. Ручной показ по-прежнему использует системный выбор экрана и звук. При ошибке сети автоматический показ повторяется через 5–30 секунд; ручное завершение отменяет повтор.
 
-«Мои компьютеры» → регистрация/вход → «Добавить компьютер»: пароль проверяется сервером, после чего появляется карточка. Само добавление не открывает удалённый сеанс. Зелёный индикатор означает доступный свободный хост; красный — отсутствующий или занятый. Подключение запускается отдельной кнопкой. Список синхронизируется между входами в один аккаунт. Пароли компьютеров в аккаунте не сохраняются: хранится разрешение, связанное с версией доступа хоста. Смена номера или пароля администратором отзывает разрешения.
+«Подключиться к ПК» → вход или регистрация справа → «Добавить компьютер»: пароль проверяется сервером, после чего появляется карточка. Само добавление не открывает удалённый сеанс. Зелёный индикатор означает доступный свободный хост; красный — отсутствующий или занятый. Подключение запускается отдельной кнопкой. Список синхронизируется между входами в один аккаунт. Пароли компьютеров в аккаунте не сохраняются: хранится разрешение, связанное с версией доступа хоста. Смена номера или пароля администратором отзывает разрешения.
 
 В сеансе «Только экран в окне» оставляет обычное изменяемое окно. Esc возвращает панели. Наведение на изображение сразу включает управление; уход с него или потеря фокуса отпускают ввод. Полосы вокруг изображения не управляют удалённым ПК. Окна притягиваются во время перетаскивания; Shift временно отключает притягивание. Размер можно ввести в настройках в физических пикселях; системный минимальный размер остаётся применимым.
 
 On Windows, enable startup and automatic desktop sharing in Settings. Only instance #1 starts unattended sharing. Host identity and ESP settings persist in the Windows credential vault. Automatic capture shares the primary monitor at up to 720p/12 fps without audio; actual rate depends on background WebView scheduling. Manual sharing retains the system picker and audio.
 
-Sign in under My computers, then add a computer using its credentials. This validates access and saves a card without opening a session. Connect explicitly from an available card. Accounts sync cards, not computer passwords; administrator changes revoke saved grants. Screen-only mode stays inside a resizable window. Hover activates control, leaving releases input, and Esc restores panels. Window snapping happens during dragging; Shift bypasses it.
+Sign in in the saved computers panel under Connect to PC, then add a computer using its credentials. This validates access and saves a card without opening a session. Connect explicitly from an available card. Accounts sync cards, not computer passwords; administrator changes revoke saved grants. Screen-only mode stays inside a resizable window. Hover activates control, leaving releases input, and Esc restores panels. Window snapping happens during dragging; Shift bypasses it.
 
+
+## Временный доступ / Temporary access
+
+Администратор может выдать дополнительный ключ для конкретного ПК на срок от минуты до 30 дней. Ключ показывается один раз. Его можно использовать вместо пароля; отзыв или истечение срока отключает соответствующий сеанс и сохранённое разрешение, не меняя основной пароль. Создание нового временного ключа заменяет предыдущий.
+
+Автотрансляция снова ожидает подключения после ухода клиента. Курсор включён в изображение. При выбранной ESP абсолютное движение удалённого курсора выполняет Windows; кнопки и клавиши отправляются через ESP. Режим разворачивания сохраняет шапку приложения, Esc восстанавливает окно. Всплывающей панели над трансляцией нет.
+
+Administrators can issue one additional per-PC key lasting from one minute to 30 days. It is displayed once and can replace the password. Revocation or expiry ends the associated session and saved grant without changing the primary password. Issuing another temporary key replaces the previous one.
+
+Automatic sharing becomes available again after a controller disconnects and includes the cursor. With ESP selected, Windows positions the desktop pointer while buttons and keys still go through ESP. Maximization preserves the app header; Escape restores the window, with no hover toolbar over the stream.
