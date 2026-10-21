@@ -4,6 +4,10 @@
 
 ## Не выпущено / Unreleased
 
+## 0.15.1 — 2026-10-21
+
+- «Упорядочить» учитывает видимые размеры блоков: компактные столбцы и строки располагаются плотнее, большие карточки не растягивают всю сетку. / Arrange uses visible block sizes and per-column spacing for compact and mixed diagrams.
+
 ## 0.15.0 — 2026-10-21
 
 - Кнопки «Свернуть все» и «Развернуть все»; порты больше не перекрываются ручкой размера, вертикальная риска справа удалена. / Collapse/expand all blocks; resize handles no longer cover ports or draw the right-edge hover mark.
