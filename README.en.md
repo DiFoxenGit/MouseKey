@@ -152,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.17.0_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.18.0_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -265,3 +265,7 @@ Accounts and computer cards, persistent access and hover control.
 ### MouseKey 0.17.0
 
 Revocable temporary access keys, side-by-side connection panels, automatic sharing recovery, a visible cursor and maximization that preserves the app header.
+
+### MouseKey 0.18.0
+
+Adaptive quality for multiple connections, collapsible diagnostics, faster automatic capture, a local cursor and F9 input broadcasting. Update both PCs for adaptation; ESP firmware stays compatible.

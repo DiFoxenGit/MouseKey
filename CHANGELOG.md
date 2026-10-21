@@ -2,6 +2,16 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.18.0 — 2026-10-21
+
+- Адаптивное качество: активное окно до 720p/30 FPS, обзор до 432p/12 FPS, скрытое до 180p/1 FPS; снижение при перегрузке и восстановление после стабильных измерений. / Adaptive active, overview and hidden stream budgets with overload hysteresis.
+- Сворачиваемая диагностика FPS, битрейта, сетевого RTT, потерь, декодирования и типа соединения. / Collapsible stream statistics with explicit unknown/unsupported states.
+- Автозахват без промежуточного JPEG: уменьшение перед чтением пикселей, ограниченные RGBA-кадры, один захват в обработке. / Native downscaling and bounded RGBA capture without intermediate JPEG encoding.
+
+- F9 включает и отключает дублирование мыши и клавиатуры между подключёнными экземплярами. Задержка копий — случайные 10–45 мс с сохранением порядка; при отключении ввод отпускается. / F9 toggles input broadcasting across connected instances with ordered random 10–45 ms copy delays and release on stop.
+- Убрана вторая стрелка из кадров автотрансляции: над изображением остаётся локальный курсор. / Removed the delayed captured cursor from automatic sharing; the local cursor remains visible.
+- По запросу восстановлено позиционирование удалённой мыши через ESP вместо SetPhysicalCursorPos. / Restored remote pointer movement through ESP instead of SetPhysicalCursorPos.
+
 ## 0.17.0 — 2026-10-21
 
 - Автотрансляция рисует курсор поверх рабочего стола. Абсолютное позиционирование удалённого курсора при выбранной ESP выполняется Windows без петли относительных корректировок; кнопки и клавиши по-прежнему отправляются ESP. / Startup capture includes the cursor; desktop pointer positioning avoids relative HID feedback.
