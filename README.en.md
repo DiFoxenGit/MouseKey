@@ -250,3 +250,9 @@ Collapse blocks to icons while keeping their connections and expanded dimensions
 Collapse all and Expand all control the entire diagram. Resize handles no longer cover connection ports.
 
 ![MouseKey 0.15.0](docs/screenshots/bulk-collapse.png)
+
+### MouseKey 0.15.1
+
+Arrange uses visible block dimensions and packs collapsed icon squares closer together.
+
+![MouseKey 0.15.1](docs/screenshots/compact-arrange.png)
