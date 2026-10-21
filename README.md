@@ -150,7 +150,7 @@ sequenceDiagram
 В PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.16.0_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.17.0_x64-setup.exe -Algorithm SHA256
 ```
 
 Сумма должна совпасть со строкой этого файла в `SHA256SUMS.txt` того же выпуска.
@@ -259,3 +259,7 @@ MouseKey — проприетарное бесплатное ПО, все пра
 Аккаунты и карточки компьютеров, постоянный доступ и управление при наведении.
 
 ![Вход в аккаунт MouseKey](docs/screenshots/account-login.png)
+
+### MouseKey 0.17.0
+
+Временные ключи доступа с отзывом, две колонки подключения, восстановление автотрансляции, видимый курсор и разворачивание с сохранением шапки приложения.
