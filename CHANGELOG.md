@@ -2,6 +2,16 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.18.1 — 2026-10-21
+
+- Исправлено позиционирование рабочего стола при выбранной ESP: абсолютные координаты применяются Windows, HID-клики/колесо/клавиши остаются на плате. Сценарии не изменены. / Exact Windows desktop pointer positioning with ESP buttons, wheel and keys.
+- Локальная стрелка отображается поверх видео сразу по событиям мыши, независимо от удалённого курсора. / Immediate local cursor overlay independent of the remote cursor.
+- Автозахват передаёт JPEG уже уменьшенного кадра вместо многомегабайтного RGBA через WebView IPC. / Downscaled JPEG reduces local IPC traffic.
+- Диагностика показывает отдельные этапы на хосте: захват/IPC, подготовку изображения, FPS и время кодирования. / Host capture and encoding telemetry separates bottlenecks.
+
+- При устойчиво медленном автозахвате разрешение уменьшается ступенчато и восстанавливается после стабильной работы. / Capture resolution adapts to sustained host overload.
+- Для всех исправлений обновите обе стороны соединения. / Update both connected computers.
+
 ## 0.18.0 — 2026-10-21
 
 - Адаптивное качество: активное окно до 720p/30 FPS, обзор до 432p/12 FPS, скрытое до 180p/1 FPS; снижение при перегрузке и восстановление после стабильных измерений. / Adaptive active, overview and hidden stream budgets with overload hysteresis.
