@@ -2,7 +2,15 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
-## Не выпущено / Unreleased
+## 0.16.0 — 2026-10-21
+
+- Управление по наведению между окнами без предварительного клика; отпускание ввода при выходе, масштабирование координат по изображению. / Hover control across windows, release on leave, letterbox-aware coordinates.
+- Режим «Только экран в окне», притягивание окон во время движения и точный размер в настройках. / Screen-only window mode, live snapping and numeric window dimensions.
+- Постоянный номер и пароль Windows-хоста, автоматическая трансляция при запуске с повторным подключением, сохранение ESP на хосте. / Persistent Windows host identity, startup sharing with retry, host-side ESP preferences.
+- Аккаунты и синхронизация карточек компьютеров: проверка пароля при добавлении, отдельное подключение, индикатор доступности. / Accounts and synced computer cards with credential validation and availability.
+- Админ-панель компьютеров на сервере подключений; смена номера/пароля отзывает сохранённые разрешения. / Device administration on the signaling server with credential revocation.
+
+- «Свернуть все» и «Развернуть все» автоматически упорядочивают схему по новым размерам; отмена восстанавливает размеры и позиции одним шагом. / Bulk collapse/expand automatically arranges the diagram; one undo restores state and positions.
 
 ## 0.15.1 — 2026-10-21
 
