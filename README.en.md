@@ -6,7 +6,7 @@
 
 **Another computer's screen, mouse and keyboard — with a short code and a password.**
 
-MouseKey connects two PCs directly: one shares its screen, the other controls it. No accounts, no subscriptions,
+MouseKey connects two PCs directly: one shares its screen, the other controls it. Persistent access and accounts to sync your computers;
 a light app built with Rust and Tauri 2.
 
 <br>
@@ -49,9 +49,9 @@ sees the first person's screen.
 
 | | |
 |---|---|
-| 🔑 **Code and password** | The six-digit code lives for 10 minutes and works once; the password is four digits |
+| 🔑 **Code and password** | Windows hosts keep a nine-digit number and password; temporary legacy codes are also supported |
 | ⚡ **Direct P2P** | Video and input go straight between the computers (WebRTC); if the network blocks that, through a relay |
-| 🖱 **Mouse and keyboard** | Control the other PC as if you sat at it; Esc releases the capture |
+| 🖱 **Mouse and keyboard** | Hover over the image to control without a preliminary click; leaving releases held input |
 | 📋 **Clipboard and files** | A shared clipboard in both directions and file transfer during a session |
 | 🖥 **Change screen** | Pick a screen or a window; Fit, 1:1, Stretch and full screen |
 | 🎚 **Quality** | Sharp, Smooth and Lite profiles, quality and 30 or 60 frames per second |
@@ -60,6 +60,8 @@ sees the first person's screen.
 | 🔌 **ESP32 board** | Optional: mouse and keyboard input through a board that acts as a regular USB device |
 | 🧩 **Scenarios (Windows)** | ESP keys/clicks, window focus, precise image comparisons, template search and click, OCR text variables, loops and variables, timing ranges, curved paths, connected visual blocks, saved layouts and clock scheduling; [guide](docs/scenarios.md) |
 | 🗔 **Multiple instances** | Launch the app again for separate settings, scenarios and ESP connections in each instance |
+| 👤 **My computers** | Accounts sync cards, validate credentials on add, show availability and connect explicitly |
+| 🪟 **Windows and startup** | Screen-only windows, live snapping, numeric dimensions and opt-in automatic sharing |
 | 🎨 **Fox Brand** | Toffee, Cocoa and Forest palettes, light and dark themes; English and Russian |
 | 🔄 **Auto-update** | Updates are signed with the project key and checked before they install |
 
@@ -150,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.3.2_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.16.0_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -175,10 +177,9 @@ The hash must match the file's line in `SHA256SUMS.txt` of the same release.
 
 ## 🛡 Privacy and security
 
-- **No accounts.** MouseKey does not ask for an email, a phone number or a sign-up.
-- **Only you give access.** The screen is shared only after Share screen and picking a screen in the Windows dialog.
-  The tray never opens access: Accept connections… first asks “Give access to this computer?”.
-- **One-time code.** The code lives for 10 minutes and works once; the password allows at most five attempts.
+- **Accounts sync computer cards.** Registration uses a username and password without email or phone. The server stores password hashes, hashed session tokens and grants to saved computers.
+- **You enable sharing.** Manual sharing uses the screen picker. Automatic sharing is off by default and must be enabled explicitly; it starts with the first application instance.
+- **Persistent access can be revoked.** Administrator changes to a number or password invalidate saved grants. Computer passwords are not stored in accounts. Windows host secrets use Windows Credential Manager.
 - **The connection server does not see the session.** It only passes the offer and the answer and does not store
   them; the screen, sound, input, clipboard and files go between the computers directly or through a relay — either
   way inside WebRTC encryption (DTLS-SRTP).
@@ -206,8 +207,7 @@ No. This is a showcase: releases with installers, the changelog and feedback. Mo
 
 <br>
 
-Check that the code has not expired (10 minutes), that the password is typed correctly and that both PCs are online.
-If the code has expired, press Back and Share screen on the sharing PC to get a new one.
+Check connectivity on both PCs and that the host is sharing. A red indicator means the computer is offline or busy. Add the card again after a password change. Legacy six-digit temporary codes expire after 10 minutes.
 
 </details>
 
@@ -216,8 +216,7 @@ If the code has expired, press Back and Share screen on the sharing PC to get a 
 
 <br>
 
-Not yet: every session starts with Share screen on the controlled PC. That is on purpose — without a person at the
-screen, access does not open.
+Yes. Enable startup and automatic desktop sharing on the Windows host. Automatic sharing runs in instance #1, captures the primary monitor at up to 720p/12 fps without audio. See [persistent access](docs/access.md).
 
 </details>
 
@@ -256,3 +255,9 @@ Collapse all and Expand all control the entire diagram. Resize handles no longer
 Arrange uses visible block dimensions and packs collapsed icon squares closer together.
 
 ![MouseKey 0.15.1](docs/screenshots/compact-arrange.png)
+
+### MouseKey 0.16.0
+
+Accounts and computer cards, persistent access and hover control.
+
+![MouseKey account sign-in](docs/screenshots/account-login.png)

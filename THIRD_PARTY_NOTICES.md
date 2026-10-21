@@ -1,5 +1,7 @@
 # Сторонние компоненты / Third-party notices
 
+Выпуск / Release: MouseKey 0.16.0
+
 MouseKey включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
 
 MouseKey includes open-source components by third parties. Below are their names, versions, licenses and license texts with copyright notices, as those licenses require. MouseKey itself is proprietary software (see [LICENSE](LICENSE)).
