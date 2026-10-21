@@ -238,3 +238,9 @@ or take it apart — see [LICENSE](LICENSE). Open-source components inside the a
 Saved blocks below the canvas; auxiliary controls stay collapsed.
 
 ![MouseKey 0.13.1](docs/screenshots/preset-library-bottom.png)
+
+### MouseKey 0.14.0
+
+Collapse blocks to icons while keeping their connections and expanded dimensions.
+
+![MouseKey 0.14.0](docs/screenshots/compact-blocks.png)

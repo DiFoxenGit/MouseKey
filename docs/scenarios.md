@@ -358,3 +358,7 @@ Click the Key field and press a shortcut, such as Shift + 2 or Ctrl + Shift + A.
 Saved blocks appear at the bottom of the left palette, grouped by mouse, keyboard, recognition, logic, timing and windows. Name the selected block on the right and choose Save block. Clicking a preset adds an independent copy. The right panel contains only selection settings; existing presets require no migration.
 
 Эталон в блоках «Найти изображение» и «Сравнить изображение» входит в сохранённую заготовку: сохраняются сами пиксели и размеры, а не путь к исходному файлу. Повторное добавление создаёт независимую копию. В карточке есть отметка «Эталон сохранён вместе с блоком». Разделы «Мои сценарии», «Импорт, экспорт и сборка EXE» и настройки выполнения находятся ниже и изначально свёрнуты.
+
+### Компактные блоки
+
+Кнопка в правом верхнем углу карточки сворачивает её до квадрата с иконкой действия. Порты и связи остаются доступны, название видно при наведении, параметры — при выборе блока справа. Та же кнопка разворачивает карточку до прежних размеров. Состояние сохраняется со сценарием и заготовкой; сворачивание можно отменить кнопкой «Отменить изменение». На выполнение сценария оно не влияет.
