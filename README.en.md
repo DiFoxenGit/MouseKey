@@ -152,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.18.1_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.19.0_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -216,7 +216,7 @@ Check connectivity on both PCs and that the host is sharing. A red indicator mea
 
 <br>
 
-Yes. Enable startup and automatic desktop sharing on the Windows host. Automatic sharing runs in instance #1, captures the primary monitor at up to 720p/12 fps without audio. See [persistent access](docs/access.md).
+Yes. Enable startup and automatic desktop sharing on the Windows host. Automatic sharing runs in instance #1, captures the primary monitor at up to 720p/30 fps without audio. See [persistent access](docs/access.md).
 
 </details>
 
@@ -269,3 +269,7 @@ Revocable temporary access keys, side-by-side connection panels, automatic shari
 ### MouseKey 0.18.1
 
 Fixed local cursor visibility and ESP desktop positioning. Automatic capture transfers compact frames, adapts resolution to host load and reports capture/encoding diagnostics. Update both PCs; no ESP firmware update is needed.
+
+### MouseKey 0.19.0
+
+Native Windows GPU capture and hardware H.264 encoding, adaptive quality and compatible fallback. Fixed automatic sharing startup and recovery after capture failures. Update both PCs; no ESP firmware update is needed. The test setup reached 28–29 FPS at 720p; simultaneous operation with 6–8 actual remote PCs has not yet been verified.

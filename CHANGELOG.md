@@ -2,6 +2,16 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.0 — 2026-10-22
+
+- Нативный видеомодуль Windows: захват рабочего стола на GPU и аппаратное кодирование H.264 без промежуточных JPEG. / Native Windows GPU desktop capture and hardware H.264 encoding without intermediate JPEG frames.
+- Качество автоматически меняется для активного, обзорного и скрытого окна. При недоступности аппаратного пути восстанавливается совместимый видеорежим. / Adaptive active, overview and hidden stream quality, with compatible video fallback.
+- Исправлен запуск автопоказа: настройки передаются при создании окна, зависшие и неудачные чтения повторяются. / Automatic sharing starts from window bootstrap settings and retries failed or stalled settings reads.
+- Диагностика показывает используемый видеорежим. / Diagnostics identify the active video pipeline.
+- Обновите обе стороны соединения. Нативный захват использует основной монитор Windows; сетевой RTT зависит от маршрута. / Update both connected computers. Native capture uses the primary Windows monitor; network RTT depends on the route.
+
+- Автопоказ восстанавливается после завершения дорожки захвата; ручная остановка отменяет восстановление. / Automatic sharing recovers after capture ends and respects explicit stop.
+
 ## 0.18.1 — 2026-10-21
 
 - Исправлено позиционирование рабочего стола при выбранной ESP: абсолютные координаты применяются Windows, HID-клики/колесо/клавиши остаются на плате. Сценарии не изменены. / Exact Windows desktop pointer positioning with ESP buttons, wheel and keys.
