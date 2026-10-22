@@ -152,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.19.1_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.19.2_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -273,3 +273,7 @@ Fixed local cursor visibility and ESP desktop positioning. Automatic capture tra
 ### MouseKey 0.19.1
 
 Fixed video timestamps and recovery, the system local cursor and FPS diagnostics. Improved mouse transmission, clipboard synchronization and file transfers; bounded memory and hardened the interface. Update both PCs; no ESP firmware update is needed. File limit: 64 MiB. Simultaneous operation with 6–8 actual remote PCs still requires validation.
+
+### MouseKey 0.19.2
+
+GPU capture and processing now consume the configured frame interval, removing the extra wait after processing. Update both PCs; no ESP firmware update is needed. Validated locally; real remote latency depends on network and hardware.
