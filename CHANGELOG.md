@@ -2,6 +2,11 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.3 — 2026-10-23
+
+- Диагностика показывает ожидание в буфере WebRTC и обработку на приёмнике за последний интервал. / Diagnostics show interval-based WebRTC buffer waiting and receiver processing time.
+- Высокий сетевой RTT без потерь и перегрузки больше не снижает качество изображения сам по себе. / High network RTT alone no longer reduces image quality without loss or overload.
+
 ## 0.19.2 — 2026-10-22
 
 - Время захвата и подготовки GPU-кадра входит в период кадров, без дополнительной полной паузы после обработки. / GPU capture and preparation consume the frame interval instead of adding a full extra wait after processing.
