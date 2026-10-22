@@ -152,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.19.3_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.19.4_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -281,3 +281,7 @@ GPU capture and processing now consume the configured frame interval, removing t
 ### MouseKey 0.19.3
 
 Diagnostics now show buffer waiting and receiver processing. High RTT alone no longer reduces quality on a healthy connection. Update both PCs; no ESP firmware update is needed.
+
+### MouseKey 0.19.4
+
+The first ready GPU frame activates native playback without waiting for polling. Sending uses the remaining frame freshness deadline. Update both PCs; no ESP firmware or server update is required.

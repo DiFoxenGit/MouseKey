@@ -2,6 +2,11 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.4 — 2026-10-23
+
+- Первый готовый GPU-кадр переключает трансляцию по событию, без ожидания очередного опроса статистики. / The first ready GPU frame activates native playback without waiting for the next stats poll.
+- Отправка учитывает оставшийся срок свежести кадра вместо дополнительного полного таймаута. / Sending uses the remaining frame freshness budget instead of adding a full timeout.
+
 ## 0.19.3 — 2026-10-23
 
 - Диагностика показывает ожидание в буфере WebRTC и обработку на приёмнике за последний интервал. / Diagnostics show interval-based WebRTC buffer waiting and receiver processing time.
