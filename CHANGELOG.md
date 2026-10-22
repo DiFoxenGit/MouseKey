@@ -2,6 +2,20 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.1 — 2026-10-22
+
+- Очередь ответов сигналинга ограничена 32 сообщениями; переполнение закрывает соединение, а не теряет отзыв доступа. / Signaling output is bounded to 32 messages; overflow disconnects instead of dropping access revocation.
+
+- Движение мыши отправляется независимо от отрисовки; ошибка подключения освобождает WebRTC-ресурсы, а смена качества обрабатывает отказ нативного кодировщика. / Mouse motion no longer waits for rendering; failed connections release WebRTC resources and native quality failures are handled.
+- Передача файлов читает порции по 16 КиБ, ограничивает буфер отправки и приём до 64 МиБ, отменяет зависшую передачу и не смешивает два файла. / File transfer reads 16 KiB slices, bounds buffering and reception to 64 MiB, times out stalled transfers and prevents interleaving.
+- Исправлены запоздалые отправки буфера обмена; включена CSP, ограничены входящие SDP, каналы и сообщения ввода. / Fixed late clipboard sends; enabled CSP and bounded incoming SDP, channels and input messages.
+
+- Возраст видеокадра учитывает время в аппаратном кодировщике; RTP-часы сохраняются при смене качества, а после пропуска запрашивается ключевой кадр. / Video age includes hardware encoder delay; RTP time survives quality changes and dropped frames trigger a keyframe request.
+
+- Локальный курсор использует системный слой указателя, без скрытия стрелки и отдельного DOM-наложения. / Local cursor uses the system pointer plane instead of hiding it behind a DOM overlay.
+- Диагностика разделяет новые кадры захвата, декодирование и показ; медленный показ при быстром декодировании возвращает совместимый поток. / Diagnostics separate fresh capture, decoding and presentation; sustained presentation stalls restore the compatible stream.
+- GPU-копирование отправляется на выполнение до передачи поверхности кодировщику. / Submit GPU copies before handing the surface to the encoder.
+
 ## 0.19.0 — 2026-10-22
 
 - Нативный видеомодуль Windows: захват рабочего стола на GPU и аппаратное кодирование H.264 без промежуточных JPEG. / Native Windows GPU desktop capture and hardware H.264 encoding without intermediate JPEG frames.
