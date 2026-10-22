@@ -2,6 +2,10 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.2 — 2026-10-22
+
+- Время захвата и подготовки GPU-кадра входит в период кадров, без дополнительной полной паузы после обработки. / GPU capture and preparation consume the frame interval instead of adding a full extra wait after processing.
+
 ## 0.19.1 — 2026-10-22
 
 - Очередь ответов сигналинга ограничена 32 сообщениями; переполнение закрывает соединение, а не теряет отзыв доступа. / Signaling output is bounded to 32 messages; overflow disconnects instead of dropping access revocation.
