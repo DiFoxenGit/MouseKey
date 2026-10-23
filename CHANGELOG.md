@@ -2,6 +2,10 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.5 — 2026-10-23
+
+- До первого кадра частота попыток GPU-захвата ограничивается выбранным FPS; добавлен диагностический счётчик попыток. / GPU capture attempts respect the selected FPS before the first frame; an attempt counter is available for diagnostics.
+
 ## 0.19.4 — 2026-10-23
 
 - Первый готовый GPU-кадр переключает трансляцию по событию, без ожидания очередного опроса статистики. / The first ready GPU frame activates native playback without waiting for the next stats poll.
