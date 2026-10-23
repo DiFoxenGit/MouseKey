@@ -2,6 +2,12 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.7 — 2026-10-23
+
+- Отозванная версия clipboard-win заменена на 5.4.3. / Replaced the yanked clipboard-win release with 5.4.3.
+- Tokio обновлён до 1.53.3 для устранения RUSTSEC-2026-0386 (Unix AsyncFd). / Updated Tokio to 1.53.3 to address RUSTSEC-2026-0386 (Unix AsyncFd).
+- Нативный кодировщик обрабатывает запросы ключевого кадра от приёмника для восстановления изображения после потерь; частые повторы объединяются. / The native encoder handles receiver keyframe requests for loss recovery, coalescing repeated requests.
+
 ## 0.19.6 — 2026-10-23
 
 - При изменении только указателя GPU-захват повторно использует неизменившуюся текстуру рабочего стола без её полного копирования. / Pointer-only updates reuse the unchanged desktop GPU texture without a full copy.

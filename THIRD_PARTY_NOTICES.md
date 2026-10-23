@@ -1,6 +1,6 @@
 # Сторонние компоненты / Third-party notices
 
-Выпуск / Release: MouseKey 0.19.6
+Выпуск / Release: MouseKey 0.19.7
 
 MouseKey включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
 
@@ -1916,7 +1916,7 @@ DEALINGS IN THE SOFTWARE.
 ### Boost Software License 1.0
 
 Used by:
-- clipboard-win 5.4.1 — https://github.com/DoumanAsh/clipboard-win
+- clipboard-win 5.4.3 — https://github.com/DoumanAsh/clipboard-win
 
 ```text
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -5630,7 +5630,7 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Used by:
 - tokio-util 0.7.19 — https://github.com/tokio-rs/tokio
-- tokio 1.53.1 — https://github.com/tokio-rs/tokio
+- tokio 1.53.3 — https://github.com/tokio-rs/tokio
 
 ```text
 MIT License
