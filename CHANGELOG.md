@@ -4,6 +4,7 @@
 
 ## 0.19.7 — 2026-10-23
 
+- Tokio обновлён до 1.53.3 для устранения RUSTSEC-2026-0386 (Unix AsyncFd). / Updated Tokio to 1.53.3 to address RUSTSEC-2026-0386 (Unix AsyncFd).
 - Нативный кодировщик обрабатывает запросы ключевого кадра от приёмника для восстановления изображения после потерь; частые повторы объединяются. / The native encoder handles receiver keyframe requests for loss recovery, coalescing repeated requests.
 
 ## 0.19.6 — 2026-10-23
