@@ -2,6 +2,10 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.6 — 2026-10-23
+
+- При изменении только указателя GPU-захват повторно использует неизменившуюся текстуру рабочего стола без её полного копирования. / Pointer-only updates reuse the unchanged desktop GPU texture without a full copy.
+
 ## 0.19.5 — 2026-10-23
 
 - До первого кадра частота попыток GPU-захвата ограничивается выбранным FPS; добавлен диагностический счётчик попыток. / GPU capture attempts respect the selected FPS before the first frame; an attempt counter is available for diagnostics.
