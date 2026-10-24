@@ -2,6 +2,11 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.9 — 2026-10-24
+
+- Ручной показ возвращён к браузерному WebRTC-потоку версии 0.16; автопоказ использует тот же захват и параметры вместо отдельного JPEG/GPU-пути. Новая адаптация качества отключена. / Restored the 0.16 browser WebRTC path for manual sharing; automatic sharing uses the same capture and settings instead of a separate JPEG/GPU path. Disabled the newer quality adaptation.
+- Автоматический выбор экрана включается после перезапуска первого экземпляра с настройкой автопоказа. В этом экземпляре ручной показ тоже выбирает экран автоматически; отключение требует перезапуска. / Automatic screen selection applies after restarting the first instance with auto sharing enabled. Manual sharing in that instance also selects automatically; disabling requires a restart.
+
 ## 0.19.8 — 2026-10-24
 
 - По запросу пользователя возвращён путь движения мыши через ESP, как до 0.18.1: абсолютные координаты снова обрабатывает ESP-бэкенд, программная установка позиции Windows удалена. / Restored pre-0.18.1 ESP mouse routing: the ESP backend handles absolute coordinates again, without Windows cursor positioning.
