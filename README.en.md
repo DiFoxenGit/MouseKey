@@ -152,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.19.8_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.19.9_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -301,3 +301,7 @@ The native encoder handles receiver keyframe requests to recover video after los
 ### MouseKey 0.19.8
 
 Restored pre-0.18.1 ESP movement, fixed local cursor dimensions and stream fullscreen. Added host input-error reporting and queue-pressure-aware quality adaptation. Update both PCs; ESP firmware changes are not required.
+
+### MouseKey 0.19.9
+
+Restored browser streaming. Automatic and manual sharing use the same capture and WebRTC; the separate native video channel and additional adaptation are disabled. Update both PCs. Automatic screen selection applies after restarting instance #1 with auto sharing enabled; manual sharing in that instance also selects automatically.
