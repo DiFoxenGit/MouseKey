@@ -152,7 +152,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.19.7_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.19.8_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -297,3 +297,7 @@ Pointer-only updates reuse the unchanged desktop GPU texture instead of making a
 ### MouseKey 0.19.7
 
 The native encoder handles receiver keyframe requests to recover video after loss. Repeated requests are coalesced. Update both PCs; no ESP firmware or server update is required.
+
+### MouseKey 0.19.8
+
+Restored pre-0.18.1 ESP movement, fixed local cursor dimensions and stream fullscreen. Added host input-error reporting and queue-pressure-aware quality adaptation. Update both PCs; ESP firmware changes are not required.

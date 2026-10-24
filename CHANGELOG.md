@@ -2,6 +2,16 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.8 — 2026-10-24
+
+- По запросу пользователя возвращён путь движения мыши через ESP, как до 0.18.1: абсолютные координаты снова обрабатывает ESP-бэкенд, программная установка позиции Windows удалена. / Restored pre-0.18.1 ESP mouse routing: the ESP backend handles absolute coordinates again, without Windows cursor positioning.
+
+- Исправлен размер локального SVG-курсора; координаты и нажатие мыши передаются одной командой, отпускание остаётся независимым. Ошибки исполнения ввода больше не скрываются на управляемом ПК. / Fixed local SVG cursor dimensions; pointer position and button-down share one command, while release remains independent. Host input errors are now reported.
+
+- Кнопка полноэкранного показа разворачивает область трансляции вместо окна приложения; выход по Esc/F11 или кнопке. / Fullscreen expands the stream area rather than maximizing the app window; exit with Esc/F11 or the button.
+
+- Адаптация учитывает одновременный рост RTT и ожидания приёмника без потерь; стабильный высокий RTT сам по себе не снижает качество. / Adaptation detects simultaneous RTT inflation and receiver waiting without loss; stable high RTT alone does not lower quality.
+
 ## 0.19.7 — 2026-10-23
 
 - Отозванная версия clipboard-win заменена на 5.4.3. / Replaced the yanked clipboard-win release with 5.4.3.
