@@ -2,6 +2,10 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.19.10 — 2026-10-25
+
+- Возвращено управление после клика по трансляции с относительными движениями, совместимыми со старой прошивкой ESP. Ctrl+Space освобождает мышь и клавиатуру; в Windows-приложении Esc передаётся удалённому ПК. При потере фокуса или отключении все нажатия сбрасываются. / Restored click-to-control with relative motion compatible with existing ESP firmware. Ctrl+Space releases input; the Windows app forwards Escape to the remote PC. Losing focus or disconnecting releases all held input.
+
 ## 0.19.9 — 2026-10-24
 
 - Ручной показ возвращён к браузерному WebRTC-потоку версии 0.16; автопоказ использует тот же захват и параметры вместо отдельного JPEG/GPU-пути. Новая адаптация качества отключена. / Restored the 0.16 browser WebRTC path for manual sharing; automatic sharing uses the same capture and settings instead of a separate JPEG/GPU path. Disabled the newer quality adaptation.

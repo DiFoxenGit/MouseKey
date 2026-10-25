@@ -150,7 +150,7 @@ sequenceDiagram
 В PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.19.9_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.19.10_x64-setup.exe -Algorithm SHA256
 ```
 
 Сумма должна совпасть со строкой этого файла в `SHA256SUMS.txt` того же выпуска.
@@ -303,3 +303,9 @@ MouseKey — проприетарное бесплатное ПО, все пра
 ### MouseKey 0.19.9
 
 Возвращена браузерная трансляция. Автопоказ и ручной показ используют одинаковый захват и WebRTC; отдельный нативный видеоканал и дополнительная адаптация отключены. Обновите оба ПК. Автоматический выбор экрана применяется после перезапуска первого экземпляра с включённым автопоказом; в нём ручной запуск тоже выбирает экран автоматически.
+
+### MouseKey 0.19.10
+
+Управление начинается кликом по трансляции. Ctrl+Space освобождает мышь и клавиатуру; Esc в Windows-приложении передаётся удалённому ПК. Возвращены относительные движения через ESP без обновления прошивки.
+
+Click the stream to control the computer. Ctrl+Space releases input; the Windows app forwards Escape to the remote PC. Relative ESP movement works with the existing firmware.
