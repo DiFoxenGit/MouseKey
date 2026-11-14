@@ -58,7 +58,7 @@ sees the first person's screen.
 | ⏸ **Pause remote control** | The partner still sees the screen, but their mouse and keyboard do not reach it; held keys are released |
 | 🦊 **Tray** | Session state, End session, Pause remote control; the tray never opens access without asking |
 | 🔌 **ESP32 board** | Optional: mouse and keyboard input through a board that acts as a regular USB device |
-| 🧩 **Scenarios (Windows)** | ESP keys/clicks, window focus, precise image comparisons, template search and click, OCR text variables, loops and variables, timing ranges, curved paths, connected visual blocks, saved layouts and clock scheduling; [guide](docs/scenarios.md) |
+| 🧩 **Scenarios (Windows)** | ESP keys/clicks/scrolling, window focus, precise image comparisons, template search and click, OCR text variables, loops and variables, timing ranges, curved paths, connected visual blocks, account-backed layouts with reference images and clock scheduling; [guide](docs/scenarios.md) |
 | 🗔 **Multiple instances** | Launch the app again for separate settings, scenarios and ESP connections in each instance |
 | 👤 **My computers** | Accounts sync cards, validate credentials on add, show availability and connect explicitly |
 | 🪟 **Windows and startup** | Screen-only windows, live snapping, numeric dimensions and opt-in automatic sharing |
@@ -305,3 +305,7 @@ Restored pre-0.18.1 ESP movement, fixed local cursor dimensions and stream fulls
 ### MouseKey 0.19.9
 
 Restored browser streaming. Automatic and manual sharing use the same capture and WebRTC; the separate native video channel and additional adaptation are disabled. Update both PCs. Automatic screen selection applies after restarting instance #1 with auto sharing enabled; manual sharing in that instance also selects automatically.
+
+### MouseKey 0.20.0
+
+Added mouse-wheel actions and account-backed scenarios with reference images. Sign in and select Save under My scenarios; on another PC, select Load from account. Local autosave remains available, and conflicting writes cannot silently overwrite newer server data. Update both PCs; ESP firmware is unchanged.

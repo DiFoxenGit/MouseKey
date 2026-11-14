@@ -2,6 +2,18 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.20.0 — 2026-11-14
+
+- RU: блок «Прокрутка» с вертикальным и горизонтальным движением колеса; сохранение схем и эталонов в аккаунт, загрузка на другом ПК и защита от конфликтов изменений. Локальное автосохранение работает без сети.
+- EN: vertical/horizontal mouse-wheel block; account-backed scenarios and reference images, cross-PC loading and revision conflict protection. Local autosave remains available offline.
+- RU: обновите оба ПК для выполнения нового блока. Прошивка ESP прежняя. После входа нажмите «Сохранить», на другом ПК — «Загрузить из аккаунта».
+- EN: update both PCs to execute the new block; existing ESP firmware remains compatible. Sign in and select Save, then Load from account on the other PC.
+
+## 0.19.11 — 2026-11-05
+
+- RU: исправлены клавиатурный фокус и доступность закрытия длинных настроек; тестовые сборки изолированы от учётных данных, автозапуска и разрешения передачи экрана рабочей версии.
+- EN: fixed keyboard focus and accessible closing of long settings; test builds isolate credentials, startup registration and screen-sharing preferences from production.
+
 ## 0.19.10 — 2026-10-25
 
 - Возвращено управление после клика по трансляции с относительными движениями, совместимыми со старой прошивкой ESP. Ctrl+Space освобождает мышь и клавиатуру; в Windows-приложении Esc передаётся удалённому ПК. При потере фокуса или отключении все нажатия сбрасываются. / Restored click-to-control with relative motion compatible with existing ESP firmware. Ctrl+Space releases input; the Windows app forwards Escape to the remote PC. Losing focus or disconnecting releases all held input.
