@@ -1,6 +1,6 @@
 # Сторонние компоненты / Third-party notices
 
-Выпуск / Release: MouseKey 0.19.10
+Выпуск / Release: MouseKey 0.20.0
 
 MouseKey включает открытые компоненты сторонних авторов. Ниже — их названия, версии, лицензии и тексты лицензий с уведомлениями об авторских правах, как того требуют эти лицензии. Сам MouseKey — закрытое ПО (см. [LICENSE](LICENSE)).
 
@@ -17216,3 +17216,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## FastDesignSystem (private, same owner)
+
+Vendored React 0.1.2 and Core 0.1.0 are proprietary packages owned by DiFoxenGit. Their LICENSE files are preserved inside the archives in vendor. Source: https://github.com/DiFoxenGit/FastDesignSystem. Legacy fox-brand remains compatibility only.
