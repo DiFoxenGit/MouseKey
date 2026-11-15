@@ -1,5 +1,9 @@
 # Сценарии / Scenarios
 
+**Новое в 0.21.0:** [сохранение целого сценария одним блоком, локально и в аккаунте](reusable-scenarios.md).
+
+**New in 0.21.0:** [save a complete scenario as a reusable block, locally and in your account](reusable-scenarios.md).
+
 ![Рабочая поверхность сценариев](screenshots/scenario-canvas.png)
 
 Раздел MouseKey 0.6.0 для Windows. Он исполняет последовательность
