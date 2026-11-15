@@ -2,6 +2,14 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.21.0 — 2026-11-16
+
+- RU: Целый сценарий сохраняется именованным блоком с эталонами и связями; заготовки сохраняются локально и в библиотеке аккаунта. Добавлены просмотр содержимого и открытие копии, обновлены библиотека под полотном и верхняя панель сохранения. Вложенные вызовы используют общие переменные, отмену и лимиты Rust-исполнителя. Сервер защищает облачные заготовки от записи старым клиентом.
+- EN: Save an entire scenario as a named reusable block with reference images and routes, locally and in account backups. Inspect its contents or open an independent copy. Updated the bottom library and save toolbar; nested calls share the Rust executor's variables, cancellation and limits. Added server compatibility for older clients saving document-only backups.
+- RU: Для выполнения вложенных сценариев обновите управляющий и управляемый ПК. Прошивка ESP остаётся прежней. Заготовки сразу сохраняются локально; на другом ПК войдите в аккаунт и нажмите «Загрузить из аккаунта».
+- EN: Update both the controlling and controlled PC to execute nested scenarios. ESP firmware is unchanged. Presets are saved locally immediately; on another PC, sign in and select Load from account.
+- [Как использовать / Usage](docs/reusable-scenarios.md)
+
 ## 0.20.0 — 2026-11-14
 
 - RU: блок «Прокрутка» с вертикальным и горизонтальным движением колеса; сохранение схем и эталонов в аккаунт, загрузка на другом ПК и защита от конфликтов изменений. Локальное автосохранение работает без сети.

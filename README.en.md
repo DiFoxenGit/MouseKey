@@ -51,7 +51,7 @@ sees the first person's screen.
 |---|---|
 | 🔑 **Code and password** | Windows hosts keep a nine-digit number and password; temporary legacy codes are also supported |
 | ⚡ **Direct P2P** | Video and input go straight between the computers (WebRTC); if the network blocks that, through a relay |
-| 🖱 **Mouse and keyboard** | Hover over the image to control without a preliminary click; leaving releases held input |
+| 🖱 **Mouse and keyboard** | Click the stream to control; Ctrl+Space releases input. Escape is forwarded to the remote PC |
 | 📋 **Clipboard and files** | A shared clipboard in both directions and file transfer during a session |
 | 🖥 **Change screen** | Pick a screen or a window; Fit, 1:1, Stretch and full screen |
 | 🎚 **Quality** | Sharp, Smooth and Lite profiles, quality and 30 or 60 frames per second |
@@ -59,6 +59,7 @@ sees the first person's screen.
 | 🦊 **Tray** | Session state, End session, Pause remote control; the tray never opens access without asking |
 | 🔌 **ESP32 board** | Optional: mouse and keyboard input through a board that acts as a regular USB device |
 | 🧩 **Scenarios (Windows)** | ESP keys/clicks/scrolling, window focus, precise image comparisons, template search and click, OCR text variables, loops and variables, timing ranges, curved paths, connected visual blocks, account-backed layouts with reference images and clock scheduling; [guide](docs/scenarios.md) |
+| 📚 **Reusable scenarios** | Save complete workflows with routes and reference images locally and in your account, then insert them as one block; [guide](docs/reusable-scenarios.md) |
 | 🗔 **Multiple instances** | Launch the app again for separate settings, scenarios and ESP connections in each instance |
 | 👤 **My computers** | Accounts sync cards, validate credentials on add, show availability and connect explicitly |
 | 🪟 **Windows and startup** | Screen-only windows, live snapping, numeric dimensions and opt-in automatic sharing |
