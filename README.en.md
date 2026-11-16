@@ -98,19 +98,13 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-### Scenario designer 0.26.0
+### Scenario designer 0.27.0
 
-Copy blocks and groups between scenarios with **Ctrl/Cmd+C / Ctrl/Cmd+V**, preserving settings, reference images and internal wires. Fixed save retries, false conflicts and linked-parent differences. Cards distinguish local and remote edits. [All 0.26.0 changes](docs/releases/0.26.0.md).
+Local and account version history recovers previous or deleted scenarios. Improved saving across eight instances, image click button/count, and smooth cursor travel with random 600–1000 ms timing.
 
-![Saved scenarios and change statuses](docs/screenshots/scenario-saving.png)
+[MouseKey 0.27.0](docs/releases/0.27.0.md)
 
-<details><summary>Copying a block group</summary>
-
-![Pasted group with its internal wire](docs/screenshots/clipboard-blocks.png)
-
-</details>
-
-Settings and scenarios are preserved. Update editors on your PCs; ESP firmware is unchanged.
+![Scenario history](docs/screenshots/scenario-history.png)
 
 ## ⚙️ How it works
 
