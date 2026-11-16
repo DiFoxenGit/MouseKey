@@ -2,6 +2,20 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.23.0 — 2026-11-16
+
+- RU: Компактный конструктор: низкая лента сценариев, параметры действия первыми, выдвижные панели на узких окнах и высота полотна по свободному месту. Имя и сохранение блока раскрываются отдельно; запуск с шага подтверждает новый запуск.
+- EN: Compact designer with a shorter scenario strip, action parameters first, narrow-window drawers and canvas height fitted to available space. Block naming/saving is collapsible; starting from a step confirms a fresh run.
+- RU: Поиск действий, избранные и недавние; двухстрочные подписи и подсветка связей выбранного блока. Библиотека снизу получила меню аккаунта и состояние совпадения локальной и облачной копий.
+- EN: Action search, favorites and recent actions; two-line summaries and highlighted connections around the selected block. Bottom library account operations are in a menu with explicit local/cloud consistency status.
+- RU: Настройки поиска изображения разделены на область, эталоны и действие после совпадения. «Допуск цвета» объясняет сравнение каналов RGB; проверка показывает схему положения совпадения и процент. Исправлена ранняя доступность служб при открытии первого окна.
+- EN: Image search is grouped into search area, templates and match behavior. Color tolerance explains per-channel RGB comparison; testing shows match position and percentage. Services are registered before the first window opens.
+
+- RU: Ошибки действий конструктора появляются справа внизу и исчезают через 6 секунд; чтение под указателем или с клавиатуры приостанавливает таймер. Полноэкранный поиск больше не упирается в фиксированный лимит сравнений: добавлен точный предварительный отсев, общий срок поиска и сохранена возможность остановки.
+- EN: Builder action failures appear at the bottom right and expire after 6 seconds; hovering or keyboard focus pauses dismissal. Full-screen image search no longer exhausts a fixed comparison budget: conservative filtering, a shared deadline and cancellation preserve exact matching.
+- RU: Свободное перемещение полотна зажатой ЛКМ, масштаб по 1% при ЛКМ + колесе; обычное колесо прокручивает страницу. Убраны полосы прокрутки полотна, лента сценариев использует готовое оформление FDS.
+- EN: Drag empty space to pan freely; hold the left button and use the wheel to zoom by 1%. Ordinary wheel scrolling moves the page. Canvas scrollbars are removed; the scenario strip uses shared FDS scrollbar styling.
+
 ## 0.22.0 — 2026-11-16
 
 - RU: «Мои сценарии» теперь компактная лента карточек с поиском, фильтрами и отдельными отметками сохранения на ПК и в аккаунте. Копии сравниваются по содержимому; загрузка, сохранение, переименование, копирование и удаление доступны из карточки. Удаление и замена отличающейся копии подтверждаются отдельно. Сервер допускает удаление последнего сценария, сохраняя библиотеку блоков.
