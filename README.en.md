@@ -98,21 +98,19 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-### Scenario designer 0.25.0
+### Scenario designer 0.26.0
 
-Drag scenarios onto the canvas as live references, select groups and jump to exact usages. Save writes locally and to your account with conflict warnings. The block library no longer collapses after deletion. [All 0.25.0 changes](docs/releases/0.25.0.md).
+Copy blocks and groups between scenarios with **Ctrl/Cmd+C / Ctrl/Cmd+V**, preserving settings, reference images and internal wires. Fixed save retries, false conflicts and linked-parent differences. Cards distinguish local and remote edits. [All 0.26.0 changes](docs/releases/0.26.0.md).
 
-![Live scenarios and execution highlighting](docs/screenshots/workspace-after-running.png)
+![Saved scenarios and change statuses](docs/screenshots/scenario-saving.png)
 
-<details><summary>Refreshed block library and light theme</summary>
+<details><summary>Copying a block group</summary>
 
-![Saved block library](docs/screenshots/workspace-after-library.png)
-
-![Light scenario workspace](docs/screenshots/workspace-after-light.png)
+![Pasted group with its internal wire](docs/screenshots/clipboard-blocks.png)
 
 </details>
 
-Update editors on every PC using live references. ESP firmware is unchanged.
+Settings and scenarios are preserved. Update editors on your PCs; ESP firmware is unchanged.
 
 ## ⚙️ How it works
 
