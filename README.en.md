@@ -60,6 +60,7 @@ sees the first person's screen.
 | 🔌 **ESP32 board** | Optional: mouse and keyboard input through a board that acts as a regular USB device |
 | 🧩 **Scenarios (Windows)** | ESP keys/clicks/scrolling, window focus, precise image comparisons, template search and click, OCR text variables, loops and variables, timing ranges, curved paths, connected visual blocks, account-backed layouts with reference images and clock scheduling; [guide](docs/scenarios.md) |
 | 📚 **Reusable scenarios** | Save complete workflows with routes and reference images locally and in your account, then insert them as one block; [guide](docs/reusable-scenarios.md) |
+| 🗂 **Scenario library** | Top cards, search, local/account states, per-scenario upload and deletion, up to eight references and start from a selected block |
 | 🗔 **Multiple instances** | Launch the app again for separate settings, scenarios and ESP connections in each instance |
 | 👤 **My computers** | Accounts sync cards, validate credentials on add, show availability and connect explicitly |
 | 🪟 **Windows and startup** | Screen-only windows, live snapping, numeric dimensions and opt-in automatic sharing |
@@ -97,7 +98,7 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-![Visual scenarios with connections and saved layouts](docs/screenshots/scenario-canvas.png)
+![Scenario cards with local and account storage](docs/screenshots/scenario-library-cards.png)
 
 ## ⚙️ How it works
 

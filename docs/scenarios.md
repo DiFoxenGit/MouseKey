@@ -1,8 +1,32 @@
+# Карточки сценариев / Scenario cards
+
+RU: Верхняя лента «Мои сценарии» открывает локальный сценарий одним нажатием. Фильтры показывают все сценарии, сохранённые на этом ПК или в текущем аккаунте. Поиск ищет по названию. Галочка «На ПК» появляется после успешной записи; «В аккаунте» относится к последней подтверждённой сервером копии. «Копии отличаются» не утверждает, какая из них новее: выберите «Обновить в аккаунте» или «Скачать и открыть» и подтвердите замену. При недоступном аккаунте состояние явно помечается как непроверенное; список можно обновить кнопкой рядом с именем аккаунта.
+
+RU: Меню `⋯` позволяет переименовать локальный сценарий, создать независимую копию, сохранить выбранный сценарий в аккаунт, скачать его и удалить только локально, только из аккаунта либо из обоих мест. «Удалить везде» касается этого ПК и аккаунта; локальные копии на других ПК остаются. Сохранённые блоки — независимые снимки и не удаляются вместе с исходным сценарием. После удаления последнего локального сценария открывается новый пустой. Действия под полотном сохраняют и загружают только библиотеку блоков и не загружают удалённые сценарии обратно.
+
+EN: The “My scenarios” strip opens a local scenario with one click. Search and filters distinguish local and account copies. The local check appears only after storage accepts the write; account state describes the last server-confirmed snapshot. “Copies differ” does not assume which is newer: explicitly upload or download and confirm replacement. Unavailable account information is marked unverified and can be refreshed next to the account name.
+
+EN: The `⋯` menu renames a local scenario, duplicates it, saves or downloads an individual scenario and deletes from this PC, the account, or both. Other computers’ local copies and independent saved blocks remain. Deleting the last local scenario opens a new empty one. The bottom block shelf uploads/downloads only blocks and cannot resurrect deleted account scenarios.
+
 # Сценарии / Scenarios
 
-**Новое в 0.21.0:** [сохранение целого сценария одним блоком, локально и в аккаунте](reusable-scenarios.md).
+## Обновлённое управление конструктором
 
-**New in 0.21.0:** [save a complete scenario as a reusable block, locally and in your account](reusable-scenarios.md).
+Сверху находятся поиск и выбор сохранённого сценария, создание, копирование, сохранение, запуск и остановка. Кнопка «Настройки сценария» открывает отдельное окно: имя, целевой ПК, разрешение удалённого выполнения, повторы, координаты, импорт/экспорт JSON и сборка EXE. Закрытие по кнопке или Esc возвращает фокус. Сохранённые блоки остаются под полотном.
+
+В «Найти изображение» можно добавить до восьми эталонов. Для каждого выберите снимок или файл; границы случайного клика настраиваются отдельно. Эталоны проверяются по порядку на одном снимке области: первое совпадение выполняет ветку «Совпало», отсутствие всех — «Не совпало». Клик использует размеры найденного варианта. Незаполненные слоты нужно заполнить или удалить. Общие лимиты: до 200 000 байт RGB на сценарий и общий бюджет сравнений; при его исчерпании сузьте область поиска. Все эталоны сохраняются в сценарии, переиспользуемом блоке и резервной копии аккаунта.
+
+Выделите карточку и нажмите справа «Запустить с этого блока». Это **новый запуск**, не продолжение остановленного: переменные пусты, предыдущие шаги пропускаются, сохранённое «Начало» не меняется. Выполняются только достижимые по связям блоки, включая обратные переходы; повтор всей схемы применяется к этому запуску. Выбранный блок цикла выполняет своё тело и повторы. Если начать внутри тела цикла, внешние не достигнутые по связям повторы не создаются. Для условия, которому нужна переменная, начните с блока её задания.
+
+У новых блоков «Перемещение», «Клик» и «Найти изображение» плавная изогнутая траектория включена сразу. Движение плавно ускоряется и замедляется, форма дуги меняется между перемещениями, конечная точка сохраняется. Скорость и случайные диапазоны задаются параметрами действий. Настройки ранее сохранённых блоков не переписываются.
+
+### English
+
+Scenario selection with search, New, Copy, Save, Run and Stop are above the canvas. Scenario settings opens a modal for naming, target/permissions, repeats, coordinates, JSON import/export and EXE packaging. Saved blocks remain below. The dialog supports Escape and restores focus.
+
+Find image supports up to eight alternative references, each with its own random click bounds. All are checked in order against one captured region; the first match takes the matched branch and its own dimensions determine the click. Fill or remove unfinished slots. References survive local saves, reusable blocks and account backups. Total image size and search work remain bounded.
+
+Run from this block starts a new execution along reachable outgoing links without changing the saved entry. Variables are empty and earlier actions are skipped. Selecting a loop starts its body/repetitions; starting inside a body does not invent unreachable outer loop state. New mouse actions default to gently curved motion with smooth acceleration/deceleration and a fixed endpoint; saved settings remain intact.
 
 ![Рабочая поверхность сценариев](screenshots/scenario-canvas.png)
 
@@ -15,13 +39,13 @@
 ### Прокрутка и сохранение в аккаунте
 
 - Блок «Прокрутка» задаёт вертикальное и горизонтальное движение колеса в делениях (от −100 до 100). Плюс — вверх/вправо, минус — вниз/влево; хотя бы одна ось должна отличаться от нуля. Перед ним можно поставить перемещение курсора в нужную область. Новая прошивка ESP не требуется.
-- После входа в аккаунт кнопка «Сохранить» отправляет библиотеку сценариев на сервер вместе с эталонами изображений. Локальное автосохранение продолжает работать без интернета.
-- На другом ПК войдите в тот же аккаунт и нажмите «Загрузить из аккаунта» в управлении сценариями. Другие локальные схемы остаются; схемы с тем же идентификатором заменяются выбранной серверной копией. «Обновить список аккаунта» получает свежую серверную копию, не меняя рабочую схему.
+- Локальное автосохранение и кнопка «Сохранить» сохраняют текущую схему на этом ПК, в том числе без интернета. Для отправки в аккаунт откройте меню карточки и выберите «Сохранить в аккаунт» или «Обновить в аккаунте»; эталоны отправляются вместе со схемой.
+- На другом ПК войдите в тот же аккаунт и откройте нужную карточку из аккаунта либо выберите «Скачать и открыть» в её меню. Другие локальные схемы остаются; замена отличающейся копии требует подтверждения. Обновление списка аккаунта получает свежую серверную копию, не меняя рабочую схему.
 - При одновременном редактировании на двух ПК устаревшая запись отклоняется. Сначала экспортируйте важную локальную схему в JSON, затем обновите и загрузите серверную копию. Предел библиотеки — 20 схем и 4 МБ; новый тип блока требует обновления приложения и на исполняющем ПК.
 
 **Channel tolerance:** максимальная разница отдельно в красном, зелёном и синем канале каждого пикселя (0–255). Например, при допуске 10 значение 120 совпадает со значениями 110–130. Все три канала должны пройти проверку. Процент совпадения — отдельный порог доли совпавших пикселей. Чем больше допуск, тем выше риск ложного совпадения.
 
-**English:** Scroll uses signed wheel notches (positive: up/right; negative: down/left). While signed in, Save uploads scenarios and reference images to the account; Load from account merges the stored library into this computer, replacing matching IDs. Local autosave remains available offline. Conflicting server revisions are rejected instead of silently overwritten. Export important local work before resolving a conflict.
+**English:** Scroll uses signed wheel notches (positive: up/right; negative: down/left). Autosave and Save store the current scenario locally, including offline. Use the card menu to upload that scenario and its reference images. On another PC, sign in and open its account card or choose Download and open. Replacing a differing copy requires confirmation; other scenarios remain. Refreshing account cards does not replace the open document. Conflicting server revisions are rejected instead of silently overwritten.
 
 1. Установите MouseKey из [последнего Windows-релиза](https://github.com/DiFoxenGit/MouseKey/releases/latest). Для удалённой работы нужна
    эта сборка на обоих ПК и обычный сеанс MouseKey по коду и паролю.

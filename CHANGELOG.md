@@ -2,6 +2,17 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.22.0 — 2026-11-16
+
+- RU: «Мои сценарии» теперь компактная лента карточек с поиском, фильтрами и отдельными отметками сохранения на ПК и в аккаунте. Копии сравниваются по содержимому; загрузка, сохранение, переименование, копирование и удаление доступны из карточки. Удаление и замена отличающейся копии подтверждаются отдельно. Сервер допускает удаление последнего сценария, сохраняя библиотеку блоков.
+- EN: “My scenarios” is a compact card strip with search, filters and separate local/account save states. Copies are compared by content; cards provide download, upload, rename, duplicate and independent deletion. Destructive actions and replacement of differing copies require confirmation. The server allows deleting the last scenario while preserving reusable blocks.
+- RU: До восьми эталонов в «Найти изображение» с отдельными границами клика; совпадение с любым выбирает ветку «Совпало». Все варианты сохраняются вместе с блоком и в библиотеке аккаунта. Один захват и общий бюджет поиска.
+- EN: Up to eight alternative image references with individual click bounds, preserved in reusable blocks and account backups. Any match follows the matched branch; one capture and one shared search budget.
+- RU: Выбор сценария с поиском, запуск, остановка и сохранение перенесены наверх. Параметры выполнения, импорт/экспорт и сборка EXE открываются отдельным окном настроек. Внизу остаются сохранённые блоки.
+- EN: Searchable scenario switching, execution and saving are above the canvas. Execution settings, import/export and EXE creation are in a settings dialog; saved blocks remain below.
+- RU: Выделенный блок можно запустить как начало нового выполнения по исходящим связям. Новые действия мыши используют плавную изогнутую траекторию по умолчанию; сохранённый выбор старых блоков остаётся прежним.
+- EN: Start a fresh run from a selected block along its outgoing connections. New mouse actions default to a smooth curved path; existing saved choices are retained.
+
 ## 0.21.0 — 2026-11-16
 
 - RU: Целый сценарий сохраняется именованным блоком с эталонами и связями; заготовки сохраняются локально и в библиотеке аккаунта. Добавлены просмотр содержимого и открытие копии, обновлены библиотека под полотном и верхняя панель сохранения. Вложенные вызовы используют общие переменные, отмену и лимиты Rust-исполнителя. Сервер защищает облачные заготовки от записи старым клиентом.
