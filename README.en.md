@@ -98,7 +98,11 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-### Scenario designer 0.24.0
+### Scenario designer 0.24.1
+
+Left button + wheel zooms in 5% steps without a jump when dragging resumes. The grid fills the canvas and the idle footer is removed. [0.24.1 fixes](docs/releases/0.24.1.md).
+
+![Continuous canvas grid and clean library footer](docs/screenshots/canvas-zoom-footer.png)
 
 Navigate the graph with a minimap, see the running block, and jump to a stopped action from persistent local error history. [What's new in 0.24.0](docs/releases/0.24.0.md).
 
