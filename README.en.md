@@ -98,21 +98,21 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-### Scenario designer 0.24.1
+### Scenario designer 0.25.0
 
-Left button + wheel zooms in 5% steps without a jump when dragging resumes. The grid fills the canvas and the idle footer is removed. [0.24.1 fixes](docs/releases/0.24.1.md).
+Drag scenarios onto the canvas as live references, select groups and jump to exact usages. Save writes locally and to your account with conflict warnings. The block library no longer collapses after deletion. [All 0.25.0 changes](docs/releases/0.25.0.md).
 
-![Continuous canvas grid and clean library footer](docs/screenshots/canvas-zoom-footer.png)
+![Live scenarios and execution highlighting](docs/screenshots/workspace-after-running.png)
 
-Navigate the graph with a minimap, see the running block, and jump to a stopped action from persistent local error history. [What's new in 0.24.0](docs/releases/0.24.0.md).
+<details><summary>Refreshed block library and light theme</summary>
 
-![MouseKey minimap and running block, Russian interface](docs/screenshots/execution-navigation-light.png)
+![Saved block library](docs/screenshots/workspace-after-library.png)
 
-<details><summary>Error history and navigation</summary>
-
-![MouseKey error history, Russian interface](docs/screenshots/execution-history-light.png)
+![Light scenario workspace](docs/screenshots/workspace-after-light.png)
 
 </details>
+
+Update editors on every PC using live references. ESP firmware is unchanged.
 
 ## ⚙️ How it works
 

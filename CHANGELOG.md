@@ -2,6 +2,12 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.25.0 — 2026-11-17
+
+- RU: Связанные сценарии с перетаскиванием и поиском использования; групповое выделение и операции; единая кнопка сохранения на ПК и в аккаунт с предупреждением о конфликте. Обновлённая библиотека, исправление удаления и зелёная подсветка выполнения.
+- EN: Drag live scenario references and find their usages; select and operate on groups; save locally and to the account with conflict warnings. Refreshed shelves, fixed deletion layout and green execution highlighting.
+- [Описание выпуска / Release notes](docs/releases/0.25.0.md).
+
 ## 0.24.1 — 2026-11-16
 
 - RU: Масштаб полотна по 5%, без скачка при продолжении перетаскивания после колеса. Непрерывный точечный фон и отсутствие выделения текста при перемещении. Убрана нижняя надпись «Готово к настройке».
