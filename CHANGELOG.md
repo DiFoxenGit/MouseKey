@@ -2,6 +2,14 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.24.0 — 2026-11-16
+
+- RU: Миникарта схемы с перемещением мышью и клавиатурой, подсветка выполняемого блока и кнопка перехода к нему. История последних 50 ошибок и остановок сохраняется локально; из записи можно открыть сценарий и перейти к нужному блоку.
+- EN: Graph minimap with pointer and keyboard navigation, current-block highlighting and a locate button. The last 50 errors and stops are stored locally; each record can open its scenario and locate the affected block.
+- RU: Отслеживание работает в ветвлениях, циклах и вложенных сценариях, включая запуск с выбранного блока. Для удалённого выполнения нужно обновить обе стороны; старые версии продолжают выполнять сценарии без новой диагностики.
+- EN: Tracking covers branches, loops, nested scenarios and starting from a selected block. Remote tracking requires both peers to be updated; older versions still execute scenarios without the new diagnostics.
+- [Описание выпуска / Release notes](docs/releases/0.24.0.md).
+
 ## 0.23.0 — 2026-11-16
 
 - RU: Компактный конструктор: низкая лента сценариев, параметры действия первыми, выдвижные панели на узких окнах и высота полотна по свободному месту. Имя и сохранение блока раскрываются отдельно; запуск с шага подтверждает новый запуск.

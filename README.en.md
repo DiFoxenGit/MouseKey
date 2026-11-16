@@ -98,7 +98,17 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-![Scenario cards with local and account storage](docs/screenshots/scenario-library-cards.png)
+### Scenario designer 0.24.0
+
+Navigate the graph with a minimap, see the running block, and jump to a stopped action from persistent local error history. [What's new in 0.24.0](docs/releases/0.24.0.md).
+
+![MouseKey minimap and running block, Russian interface](docs/screenshots/execution-navigation-light.png)
+
+<details><summary>Error history and navigation</summary>
+
+![MouseKey error history, Russian interface](docs/screenshots/execution-history-light.png)
+
+</details>
 
 ## ⚙️ How it works
 
