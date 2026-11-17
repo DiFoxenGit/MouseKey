@@ -1,6 +1,6 @@
 # MouseKey scenarios
 
-Guide for **0.29.0**, reviewed November 18, 2026. [Русский](scenarios.md) · [Reusable scenarios](reusable-scenarios.md) · [Release notes](releases/0.29.0.md).
+Guide for **0.30.0**, reviewed November 18, 2026. [Русский](scenarios.md) · [Reusable scenarios](reusable-scenarios.md) · [Release notes](releases/0.30.0.md).
 
 Scenarios execute on the selected Windows PC through its configured ESP. Capture and OCR run on that PC, independently of compressed streaming video. Remote execution requires updated clients and host permission. Ordinary remote control can use Windows software input without an ESP.
 
@@ -103,3 +103,17 @@ Image search and OCR previews show a thumbnail of the exact frame used for recog
 Selecting a history snapshot compares it with the current document, including linked scenarios. Added/removed actions, parameter and connection changes are separated from layout. The same comparison is shown for local/account save conflicts. Timestamps and refreshed live-link caches are ignored; changed reference pixels are summarized without dumping their bytes.
 
 Update both PCs to **0.29.0** for remote preflight/previews and allow scenarios on the target. No server patch or ESP firmware update is required.
+
+## Debugger and conflict resolution (0.30.0)
+
+Enable **Debugger** above the canvas, select a block and optionally enable **Breakpoint**, then use any of the three run commands. Execution pauses before the first action. **Step** enters nested scenarios; checking a loop condition also counts as a step. **Continue** runs to the next breakpoint or completion. **Pause** waits for the current action to finish so no key or mouse button is left held. **Stop scenario** also works while paused.
+
+The panel displays the current position and variable values. Breakpoints apply to blocks in the open graph and last for the current editor session. Open a child separately to set its breakpoints, or step into it. Editing is disabled during execution. For local runs, MouseKey returns on pause, minimizes before continuing and restores the target window. Pausing halfway through an individual action is not supported; use Stop. Update **both PCs to 0.30.0** for remote debugging.
+
+A save conflict opens a dedicated dialog. Expand **What changed**, then choose PC or account values for each changed block, scenario settings and connection. **All from this PC/account** fills every decision. **Merged result** previews the result before saving. Connections to deleted nodes are removed; incomplete graphs show an explanation. The selected result is persisted locally before uploading. Network failures preserve the local result; retry Save after reconnecting. Further account changes to the same data require a fresh review.
+
+**Keep both versions** preserves the account original and creates an independent local copy including its dependency tree. Editing the copy cannot alter the original linked scenarios. **Refresh account data** reloads the latest version and resets outdated selections.
+
+History can restore a valid snapshot over a damaged local library after backing up the original raw values and recovery journal. If backup fails, replacement does not proceed. Recognition previews also reset when the target computer changes. History comparison only includes dependencies that restoration will actually replace. Variable preflight follows graph routes; random movement areas override unused fixed points.
+
+[Interface screenshots](scenario-workspace-030.md). No server, ESP firmware or scenario-format migration is required.
