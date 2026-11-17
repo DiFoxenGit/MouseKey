@@ -2,6 +2,14 @@
 
 Версии — [SemVer](https://semver.org/lang/ru/). Изменения до 0.2.7 включительно описаны в выпусках на GitHub.
 
+## 0.28.0 — 2026-11-17
+
+- RU: Компактная компоновка конструктора: карточки сверху, больше места для схемы, раскрываемые группы настроек и нижняя библиотека. Пакетное изменение диапазона и траектории движения с отменой.
+- EN: Compact designer layout with top cards, more canvas space, grouped settings and a collapsible bottom library. Undoable bulk editing of cursor travel range and curve.
+- RU: Исправлены пять ошибок аудита: JSON с эталонами снова импортируется; диапазон не выключается при редактировании границ; длинные имена не ломают карточки; подписи показывают диапазон, кнопку и число кликов; подсказка длительности актуальна.
+- EN: Fixed reference-heavy JSON reimport, disappearing range fields, overflowing card titles, incomplete movement/click summaries and the outdated duration hint.
+- [Подробности / Details](docs/releases/0.28.0.md).
+
 ## 0.27.0 — 2026-11-17
 
 - RU: История версий и восстановление сценариев; надёжные сохранения в восьми экземплярах; левая/правая кнопка и кратность клика по изображению; плавные движения со случайной длительностью 600–1000 мс.

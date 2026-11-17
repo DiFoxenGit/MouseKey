@@ -1,6 +1,6 @@
 # MouseKey scenarios
 
-Guide for **0.27.0**, reviewed November 17, 2026. [Русский](scenarios.md) · [Reusable scenarios](reusable-scenarios.md) · [Release notes](releases/0.27.0.md).
+Guide for **0.27.0**, reviewed November 17, 2026. [Русский](scenarios.md) · [Reusable scenarios](reusable-scenarios.md) · [Release notes](releases/0.28.0.md).
 
 Scenarios execute on the selected Windows PC through its configured ESP. Capture and OCR run on that PC, independently of compressed streaming video. Remote execution requires updated clients and host permission. Ordinary remote control can use Windows software input without an ESP.
 
@@ -13,7 +13,7 @@ Scenarios execute on the selected Windows PC through its configured ESP. Capture
 5. Save writes locally and uploads the scenario with dependencies to an available account.
 6. Run. Stop scenario or F12 on the target PC cancels execution.
 
-![Current 0.27.0 editor with Russian test fixtures](screenshots/scenario-current-027.png)
+![Current 0.27.0 editor with Russian test fixtures](screenshots/scenario-workspace-028.jpg)
 
 ## Workspace
 
@@ -86,11 +86,7 @@ JSON export includes references and portable snapshots of linked calls, not live
 
 Limits include 20 documents, 100 total actions with nested calls, nesting depth 3, 200,000 RGB values per run, 100 presets and a 4 MB account library. History has a separate quota. Capture uses the primary monitor; protected/exclusive-fullscreen content may require windowed mode. Reconnection permits a fresh run; interrupted actions are not replayed.
 
-Known 0.27.0 issues, not fixed by this documentation update:
-
-- Pretty-printed JSON can exceed the 1 MB import limit. A valid scenario with two 128×128 references exported to 1.67 MB and failed reimport. Verify reimport before treating a file as your only tested backup. Original local/account data is not deleted.
-- Raising minimum travel time above the maximum can turn random mode off. Raise the maximum first and verify the checkbox. The 700 ms hint is stale; new defaults are 600–1000 ms.
-- Some block summaries omit details; inspect the right panel. Long names and small windows have layout issues. See the [audit and proposals](scenario-interface-audit-2026-11-17.md).
+Fixed in 0.28: compact JSON export validates reimport; legacy formatted files up to 4 MB still have a 1 MB compact-document limit. Range fields remain visible while editing equal bounds, long card names are contained and summaries include travel range, mouse button and click count. New defaults remain 600–1000 ms. See the [compact workspace and scope](scenario-workspace-028.md).
 
 ## Data
 
