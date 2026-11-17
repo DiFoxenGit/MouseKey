@@ -1,6 +1,6 @@
 # MouseKey scenarios
 
-Guide for **0.27.0**, reviewed November 17, 2026. [Русский](scenarios.md) · [Reusable scenarios](reusable-scenarios.md) · [Release notes](releases/0.28.0.md).
+Guide for **0.29.0**, reviewed November 18, 2026. [Русский](scenarios.md) · [Reusable scenarios](reusable-scenarios.md) · [Release notes](releases/0.29.0.md).
 
 Scenarios execute on the selected Windows PC through its configured ESP. Capture and OCR run on that PC, independently of compressed streaming video. Remote execution requires updated clients and host permission. Ordinary remote control can use Windows software input without an ESP.
 
@@ -91,3 +91,15 @@ Fixed in 0.28: compact JSON export validates reimport; legacy formatted files up
 ## Data
 
 Account saves upload scenarios, dependencies, reference images and presets; the server also retains history. This is distinct from encrypted WebRTC streaming. Avoid including secrets in portable text values or references. Scenarios execute on the target, not the server. No ESP firmware update is needed for these features; hardware/application compatibility requires its own tests.
+
+## Preflight, recognition previews and version comparison (0.29.0)
+
+Run, Run from this block and Only this block now share the command bar above the canvas. Select exactly one block for the latter two actions. Every launch runs a read-only preflight; the checklist button checks without starting. Graphs, linked scenarios, parameters/references, target screen bounds, selected ESP readiness and executor availability are checked. Errors block execution; uncertain window/variable checks are warnings with navigation to the affected block. This is not a guarantee that a future image or window will remain available.
+
+Run from follows outgoing connections. Only this block runs once without following its continuation: a loop includes its body, and a call includes the entire child scenario. Conditions do not follow their output branches. Each new run starts with fresh variables. Editing the document/library or changing the target invalidates an approved check.
+
+Image search and OCR previews show a thumbnail of the exact frame used for recognition, with no second capture. Image search includes the matching rectangle/reference/score or the searched frame when nothing matched. OCR includes raw text and numeric conversion results. Enlarge opens the snapshot in a dialog. Recognition still uses the original resolution; old results disappear after settings change.
+
+Selecting a history snapshot compares it with the current document, including linked scenarios. Added/removed actions, parameter and connection changes are separated from layout. The same comparison is shown for local/account save conflicts. Timestamps and refreshed live-link caches are ignored; changed reference pixels are summarized without dumping their bytes.
+
+Update both PCs to **0.29.0** for remote preflight/previews and allow scenarios on the target. No server patch or ESP firmware update is required.

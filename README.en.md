@@ -101,15 +101,15 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-### Scenario designer 0.28.0
+### Scenario designer 0.29.0
 
-Compact cards, a collapsible bottom library and grouped controls leave more room for the canvas. Five audit issues are fixed; travel range and curve can be applied to several selected blocks.
+Read-only preflight checks navigate to affected blocks. Three run modes share the top command bar. Search and OCR show the same captured frame; history and save conflicts compare values and linked scenarios. Update both PCs to 0.29.0 for remote preflight and previews.
 
-[0.28.0 release](docs/releases/0.28.0.md) · [Full guide](docs/scenarios.en.md) · [Audit and known limitations](docs/scenario-interface-audit-2026-11-17.md)
+[0.29.0 release](docs/releases/0.29.0.md) · [Full guide](docs/scenarios.en.md) · [Audit and known limitations](docs/scenario-interface-audit-2026-11-17.md)
 
-![MouseKey 0.28](docs/screenshots/scenario-workspace-028.jpg)
+![MouseKey 0.29 — test data](docs/images/0.29.0/preflight-ru.jpg)
 
-[Workspace changes and future roadmap](docs/scenario-workspace-028.md)
+[Workspace changes and future roadmap](docs/scenario-workspace-029.md)
 
 Save writes locally and uploads to an available account. Autosave remains local. Explicit motion settings in older scenarios are preserved.
 
@@ -148,7 +148,7 @@ sequenceDiagram
 | **Network** | Internet on both PCs: the connection server finds the partner by code |
 | **ESP32 board** | Not needed — only for input through a board |
 
-For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). Current 0.28.0 scenarios execute on Windows.
+For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). Current 0.29.0 scenarios execute on Windows.
 
 ## ⬇️ Download
 
@@ -169,7 +169,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.28.0_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.29.0_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
