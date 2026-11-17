@@ -1,34 +1,38 @@
-# Сценарий одним блоком / Reusable scenarios
+# Повторное использование / Reusable scenarios
 
-В MouseKey 0.21.0 готовую схему можно превратить в один именованный блок и повторно использовать в других сценариях.
+Актуально для **0.27.0**. [Руководство](scenarios.md) · [English guide](scenarios.en.md).
 
-1. Соедините исходную схему от «Начала» до нужных действий.
-2. Под полотном нажмите **«Сценарий → блок»**, задайте имя и сохраните.
-3. Откройте другую схему. В **«Сохранённых блоках → Сценарии»** нажмите нужную заготовку.
-4. Подключите её вход и выход «Далее». Справа можно задать повторы, раскрыть содержимое или открыть отдельную копию для редактирования.
+## Связанный сценарий
 
-![Вложенный сценарий и его параметры](screenshots/reusable-scenarios.jpg)
+Перетащите карточку исходного сценария **сверху на полотно другого сценария** либо используйте «На схему». Подключите вход и «Далее». Изменения отдельного исходника используются во всех связанных вызовах. Повторы конкретного вызова можно переопределить независимо от исходника.
 
-Снимок включает действия, связи, повторы и эталоны изображений. Вставленные копии независимы: изменение исходной схемы их не меняет. Переменные общие с внешним сценарием; отмена останавливает весь запуск.
+Поиск мест использования помогает перейти к вызывающей схеме. Проверьте их перед удалением исходника. Прямые и косвенные ссылки сценария на самого себя не поддерживаются.
 
-## Локально и в аккаунте
+«Сохранить» отправляет текущий документ и необходимые исходники в доступный аккаунт. На другом ПК загрузите согласованную копию с зависимостями. Это явное сохранение/загрузка: правки на одном ПК не подменяют открытый документ на другом без выбора пользователя.
 
-Заготовка сразу сохраняется в текущем локальном профиле. После входа новая заготовка также отправляется в библиотеку аккаунта, когда она доступна. Статусы локального сохранения и отправки показываются отдельно. Если сеть недоступна или возник конфликт, локальная копия остаётся; после восстановления связи нажмите «Обновить» и «Сохранить в аккаунт».
+## Независимая заготовка
 
-На другом ПК войдите в тот же аккаунт и нажмите **«Загрузить из аккаунта»**. Это сохранение резервной копии и её явное восстановление, а не непрерывное зеркалирование. Экземпляры MouseKey имеют отдельные локальные профили; библиотеку между ними можно перенести через аккаунт.
+Для независимой копии выберите **«Сценарий → блок»** под полотном, задайте имя и добавьте её из «Сохранённых блоков → Сценарии». Снимок содержит действия, маршруты, повторы и эталоны. Последующие изменения исходника его не меняют. Справа доступны содержимое и открытие отдельной копии для редактирования.
 
-Обновите управляющий и управляемый ПК до 0.21.0 для нового блока. **Прошивка ESP остаётся прежней.** Сервер сохраняет заготовки при записи из старого клиента, который ещё не поддерживает это поле.
+Обычный настроенный блок тоже можно именовать и сохранить в нижнюю библиотеку вместе с эталонами. Заготовки хранятся локально; библиотека аккаунта позволяет явно сохранить/загрузить их. При неудачной отправке локальная заготовка остаётся.
 
-## Ограничения
+| Способ | Назначение |
+|---|---|
+| Перетащить сценарий сверху | Правки общего исходника должны применяться к его использованию |
+| «Сценарий → блок» снизу | Самостоятельная версия, не меняющаяся вслед за исходником |
+| Ctrl+C / Ctrl+V | Копия выделенных блоков с внутренними связями |
+| JSON | Переносимый документ: связанные вызовы превращаются в снимки |
 
-До 100 действий суммарно с вложенными сценариями, глубина вложения до 3. Общие отмена и лимит операций защищают от бесконечного исполнения. Незавершённые схемы и действия без обязательного эталона сохранить нельзя. Ожидание конкретного времени по часам оставляйте во внешнем сценарии. При открытии копии расположение внутренних блоков рассчитывается заново.
+## Выполнение
+
+Вызов возвращается через «Далее» после внутренних действий и повторов. Переменные общие с внешней схемой; входные/выходные параметры пока не поддерживаются. Отмена и бюджет операций общие. До 100 действий с вложенными вызовами, глубина до 3. Обновите редактор и исполнитель; прошивка ESP остаётся прежней.
+
+Заготовка целого сценария требует пригодной к выполнению схемы. Обычный незавершённый документ можно сохранять как черновик. Сохранения, история и ограничение больших JSON-файлов описаны в [руководстве](scenarios.md).
 
 ## English
 
-Connect the source workflow, choose **Scenario → block** below the canvas, name it and save. Open another workflow and select the preset under **Saved blocks → Scenarios**. Connect its input and Next output. The inspector shows repetitions, contents and Open a copy for editing.
+Drag a top-shelf scenario card onto another canvas, or choose Add to canvas, for a **linked call**. Source edits apply to linked uses; each call can override repeats. Find usages before deleting a source. Direct/indirect self-references are not supported. Save uploads the document with required sources; downloads are explicit and do not silently replace another PC's open draft.
 
-Snapshots preserve actions, routes, repeats and reference images. Inserted copies never change automatically. Nested calls share variables, cancellation and the operation budget with the outer workflow.
+For an **independent snapshot**, choose Scenario → block below the canvas, name it and insert it from Saved blocks → Scenarios. It preserves actions, routes, repeats and references without following later source edits. Individual actions can also be named/saved. Local presets survive upload failures; account backup/load is explicit.
 
-Presets are saved locally first and uploaded to the available signed-in account. Network failures retain the local copy; refresh and save to the account after reconnecting. On another PC, sign in and choose **Load from account**. This is explicit backup/restore, not continuous synchronization. Local profiles are separate for each instance.
-
-Update both PCs to 0.21.0; existing ESP firmware remains compatible. Limits are 100 total actions and nesting depth 3. Keep absolute-clock waits in the outer workflow. Opening a copy recalculates its internal layout.
+Ctrl+C/Ctrl+V copies selected blocks with internal links. JSON exports portable snapshots rather than live cross-PC references. Calls share variables, cancellation and execution budgets; input/output parameters are not implemented. Limits include 100 total actions and depth 3. Update both clients; ESP firmware is unchanged. The guide covers recovery and the known large-JSON reimport limitation.

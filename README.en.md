@@ -20,6 +20,7 @@ a light app built with Rust and Tauri 2.
 [**⬇️ Download**](#️-download) ·
 [**🖼 Screenshots**](#-screenshots) ·
 [**🚀 Install**](#-install) ·
+[**🧩 Scenarios**](docs/scenarios.en.md) ·
 [**🛡 Privacy and security**](#-privacy-and-security) ·
 [**Русский**](README.md)
 
@@ -38,6 +39,8 @@ a light app built with Rust and Tauri 2.
 - [Privacy and security](#-privacy-and-security)
 - [FAQ](#-faq)
 - [License](#-license)
+- [Scenario guide](docs/scenarios.en.md)
+- [UI audit and proposals](docs/scenario-interface-audit-2026-11-17.md)
 
 ---
 
@@ -58,8 +61,8 @@ sees the first person's screen.
 | ⏸ **Pause remote control** | The partner still sees the screen, but their mouse and keyboard do not reach it; held keys are released |
 | 🦊 **Tray** | Session state, End session, Pause remote control; the tray never opens access without asking |
 | 🔌 **ESP32 board** | Optional: mouse and keyboard input through a board that acts as a regular USB device |
-| 🧩 **Scenarios (Windows)** | ESP keys/clicks/scrolling, window focus, precise image comparisons, template search and click, OCR text variables, loops and variables, timing ranges, curved paths, connected visual blocks, account-backed layouts with reference images and clock scheduling; [guide](docs/scenarios.md) |
-| 📚 **Reusable scenarios** | Save complete workflows with routes and reference images locally and in your account, then insert them as one block; [guide](docs/reusable-scenarios.md) |
+| 🧩 **Scenarios (Windows)** | ESP keys/clicks/scrolling, window focus, precise image comparisons, template search and click, OCR text variables, loops and variables, timing ranges, curved paths, connected visual blocks, account-backed layouts with reference images and clock scheduling; [guide](docs/scenarios.en.md) |
+| 📚 **Reusable scenarios** | Drag top cards for linked calls or save independent snapshots below; source edits affect linked calls only; [guide](docs/reusable-scenarios.md) |
 | 🗂 **Scenario library** | Top cards, search, local/account states, per-scenario upload and deletion, up to eight references and start from a selected block |
 | 🗔 **Multiple instances** | Launch the app again for separate settings, scenarios and ESP connections in each instance |
 | 👤 **My computers** | Accounts sync cards, validate credentials on add, show availability and connect explicitly |
@@ -102,7 +105,9 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 
 Local and account version history recovers previous or deleted scenarios. Improved saving across eight instances, image click button/count, and smooth cursor travel with random 600–1000 ms timing.
 
-[MouseKey 0.27.0](docs/releases/0.27.0.md)
+[0.27.0 release](docs/releases/0.27.0.md) · [Full guide](docs/scenarios.en.md) · [Audit and known limitations](docs/scenario-interface-audit-2026-11-17.md)
+
+Save writes locally and uploads to an available account. Autosave remains local. Explicit motion settings in older scenarios are preserved.
 
 ![Scenario history](docs/screenshots/scenario-history.png)
 
@@ -139,7 +144,7 @@ sequenceDiagram
 | **Network** | Internet on both PCs: the connection server finds the partner by code |
 | **ESP32 board** | Not needed — only for input through a board |
 
-For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). The 0.6.0 scenarios execute on Windows.
+For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). Current 0.27.0 scenarios execute on Windows.
 
 ## ⬇️ Download
 
@@ -148,7 +153,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 | File | What for |
 |---|---|
 | `MouseKey_<version>_x64-setup.exe` | **The installer for most people** — installs for the current user and updates itself |
-| `MouseKey_<version>_x64_en-US.msi` | MSI installer — for deployment in organisations |
+| `fds-build.json`, `release-manifest.json` | Build and artifact verification metadata; the current release uses the FDS EXE, without MSI |
 | `*.sig`, `latest.json` | Signatures and the update feed — the app reads them itself |
 | `SHA256SUMS.txt` | Checksums of every file in the release |
 
@@ -160,7 +165,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.19.9_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.27.0_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
@@ -184,6 +189,8 @@ The hash must match the file's line in `SHA256SUMS.txt` of the same release.
 > copy. 0.3.0 had a private update address; from 0.3.1 updates come from here and install on their own.
 
 ## 🛡 Privacy and security
+
+Account scenario saves upload workflows, linked sources, reference images and presets, with version history. These are separate account data, not part of the encrypted stream.
 
 - **Accounts sync computer cards.** Registration uses a username and password without email or phone. The server stores password hashes, hashed session tokens and grants to saved computers.
 - **You enable sharing.** Manual sharing uses the screen picker. Automatic sharing is off by default and must be enabled explicitly; it starts with the first application instance.
@@ -224,11 +231,13 @@ Check connectivity on both PCs and that the host is sharing. A red indicator mea
 
 <br>
 
-Yes. Enable startup and automatic desktop sharing on the Windows host. Automatic sharing runs in instance #1, captures the primary monitor at up to 720p/30 fps without audio. See [persistent access](docs/access.md).
+Yes. Enable startup and automatic desktop sharing on the Windows host. Automatic sharing runs in instance #1. Automatic and manual sharing use browser capture/WebRTC, requesting up to 3840×2160 at 60 fps; actual quality and audio depend on the source, hardware and network. See [persistent access](docs/access.md).
 
 </details>
 
 ## 📝 Changes
+
+[Historical release highlights](docs/release-highlights-archive.en.md) are archived separately: native video and hover-based input described there are not the current mode.
 
 What is new in each version — [CHANGELOG.md](CHANGELOG.md) and the [release](https://github.com/DiFoxenGit/MouseKey/releases) notes.
 
@@ -239,81 +248,3 @@ or take it apart — see [LICENSE](LICENSE). Open-source components inside the a
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 <div align="center"><br><sub>© 2026 DiFoxen · MouseKey — your own remote access · <a href="README.md">Русский</a></sub></div>
-
-### MouseKey 0.13.1
-
-Saved blocks below the canvas; auxiliary controls stay collapsed.
-
-![MouseKey 0.13.1](docs/screenshots/preset-library-bottom.png)
-
-### MouseKey 0.14.0
-
-Collapse blocks to icons while keeping their connections and expanded dimensions.
-
-![MouseKey 0.14.0](docs/screenshots/compact-blocks.png)
-
-### MouseKey 0.15.0
-
-Collapse all and Expand all control the entire diagram. Resize handles no longer cover connection ports.
-
-![MouseKey 0.15.0](docs/screenshots/bulk-collapse.png)
-
-### MouseKey 0.15.1
-
-Arrange uses visible block dimensions and packs collapsed icon squares closer together.
-
-![MouseKey 0.15.1](docs/screenshots/compact-arrange.png)
-
-### MouseKey 0.16.0
-
-Accounts and computer cards, persistent access and hover control.
-
-![MouseKey account sign-in](docs/screenshots/account-login.png)
-
-### MouseKey 0.17.0
-
-Revocable temporary access keys, side-by-side connection panels, automatic sharing recovery, a visible cursor and maximization that preserves the app header.
-
-### MouseKey 0.18.1
-
-Fixed local cursor visibility and ESP desktop positioning. Automatic capture transfers compact frames, adapts resolution to host load and reports capture/encoding diagnostics. Update both PCs; no ESP firmware update is needed.
-
-### MouseKey 0.19.1
-
-Fixed video timestamps and recovery, the system local cursor and FPS diagnostics. Improved mouse transmission, clipboard synchronization and file transfers; bounded memory and hardened the interface. Update both PCs; no ESP firmware update is needed. File limit: 64 MiB. Simultaneous operation with 6–8 actual remote PCs still requires validation.
-
-### MouseKey 0.19.2
-
-GPU capture and processing now consume the configured frame interval, removing the extra wait after processing. Update both PCs; no ESP firmware update is needed. Validated locally; real remote latency depends on network and hardware.
-
-### MouseKey 0.19.3
-
-Diagnostics now show buffer waiting and receiver processing. High RTT alone no longer reduces quality on a healthy connection. Update both PCs; no ESP firmware update is needed.
-
-### MouseKey 0.19.4
-
-The first ready GPU frame activates native playback without waiting for polling. Sending uses the remaining frame freshness deadline. Update both PCs; no ESP firmware or server update is required.
-
-### MouseKey 0.19.5
-
-Empty GPU capture attempts before the first frame now respect the selected FPS. Native video diagnostics include a capture-attempt counter. Update both PCs; no ESP firmware or server update is required.
-
-### MouseKey 0.19.6
-
-Pointer-only updates reuse the unchanged desktop GPU texture instead of making another full copy. Update both PCs; no ESP firmware or server update is required.
-
-### MouseKey 0.19.7
-
-The native encoder handles receiver keyframe requests to recover video after loss. Repeated requests are coalesced. Update both PCs; no ESP firmware or server update is required.
-
-### MouseKey 0.19.8
-
-Restored pre-0.18.1 ESP movement, fixed local cursor dimensions and stream fullscreen. Added host input-error reporting and queue-pressure-aware quality adaptation. Update both PCs; ESP firmware changes are not required.
-
-### MouseKey 0.19.9
-
-Restored browser streaming. Automatic and manual sharing use the same capture and WebRTC; the separate native video channel and additional adaptation are disabled. Update both PCs. Automatic screen selection applies after restarting instance #1 with auto sharing enabled; manual sharing in that instance also selects automatically.
-
-### MouseKey 0.20.0
-
-Added mouse-wheel actions and account-backed scenarios with reference images. Sign in and select Save under My scenarios; on another PC, select Load from account. Local autosave remains available, and conflicting writes cannot silently overwrite newer server data. Update both PCs; ESP firmware is unchanged.
