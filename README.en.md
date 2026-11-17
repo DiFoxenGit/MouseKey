@@ -101,11 +101,15 @@ The new look is the shared DiFoxen brand, **Fox Brand**: the app mark is the fox
 </tr>
 </table>
 
-### Scenario designer 0.27.0
+### Scenario designer 0.28.0
 
-Local and account version history recovers previous or deleted scenarios. Improved saving across eight instances, image click button/count, and smooth cursor travel with random 600–1000 ms timing.
+Compact cards, a collapsible bottom library and grouped controls leave more room for the canvas. Five audit issues are fixed; travel range and curve can be applied to several selected blocks.
 
-[0.27.0 release](docs/releases/0.27.0.md) · [Full guide](docs/scenarios.en.md) · [Audit and known limitations](docs/scenario-interface-audit-2026-11-17.md)
+[0.28.0 release](docs/releases/0.28.0.md) · [Full guide](docs/scenarios.en.md) · [Audit and known limitations](docs/scenario-interface-audit-2026-11-17.md)
+
+![MouseKey 0.28](docs/screenshots/scenario-workspace-028.jpg)
+
+[Workspace changes and future roadmap](docs/scenario-workspace-028.md)
 
 Save writes locally and uploads to an available account. Autosave remains local. Explicit motion settings in older scenarios are preserved.
 
@@ -144,7 +148,7 @@ sequenceDiagram
 | **Network** | Internet on both PCs: the connection server finds the partner by code |
 | **ESP32 board** | Not needed — only for input through a board |
 
-For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). Current 0.27.0 scenarios execute on Windows.
+For Linux (X11), use [release 0.3.2](https://github.com/DiFoxenGit/MouseKey/releases/tag/v0.3.2). Current 0.28.0 scenarios execute on Windows.
 
 ## ⬇️ Download
 
@@ -165,7 +169,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.27.0_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.28.0_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.
