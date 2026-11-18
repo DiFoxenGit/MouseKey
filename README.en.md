@@ -28,6 +28,10 @@ a light app built with Rust and Tauri 2.
 
 ---
 
+## Update 0.30.1
+
+FDS 0.2.0-beta.6 components and branded installer, smooth disclosure transitions and restored headings in the compact inspector. Data preservation and 150–200% scaling were verified. The 0.30.0 debugger features are retained.
+
 ## 📑 Contents
 
 - [What it is](#-what-it-is)
@@ -169,7 +173,7 @@ The latest version is on the [**Releases**](https://github.com/DiFoxenGit/MouseK
 In PowerShell:
 
 ```powershell
-Get-FileHash .\MouseKey_0.30.0_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\MouseKey_0.30.1_x64-setup.exe -Algorithm SHA256
 ```
 
 The hash must match the file's line in `SHA256SUMS.txt` of the same release.

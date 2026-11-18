@@ -1,5 +1,12 @@
 # Изменения / Changelog
 
+## [0.30.1] — 2026-11-18
+
+- RU: FDS 0.2.0-beta.6, плавные раскрытия и фирменный установщик. Исправлены скрытые заголовки разделов в узкой панели настроек блока; данные и возможности 0.30.0 сохранены.
+- EN: Updated FDS components, motion and branded installer. Fixed hidden disclosure headings in the compact inspector; existing data and 0.30.0 features are retained.
+- Проверены / Verified: 713 frontend tests, 189 Rust tests, native input focus/restart, actual WebView scale 150–200%, 631 unchanged profile files and the existing updater signature key.
+
+
 ## [0.30.0] — 2026-11-18
 
 - Отладчик: пауза между завершёнными действиями, шаг с входом во вложенные сценарии, точки останова и значения переменных. Управление защищено от команд другого запуска и устаревшего шага.
